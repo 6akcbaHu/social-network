@@ -1,0 +1,13 @@
+
+.header {
+    grid-area:h;
+    background-color: cornflowerblue;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+
+}
+/*.header img {*/
+/*  background-image: url("../../images/logo1.png");*/
+
+/*}*/
