@@ -1,11 +1,15 @@
 
 .header {
     grid-area:h;
-    background-color: cornflowerblue;
-    width: 100%;
+    /*background-color: cornflowerblue;*/
+    background-image: url("../../images/header/clouds-header.jpg");
+    background-size: cover;
+    border-radius: 6px;
+    margin: 10px auto;
+    width: 80%;
     text-align: center;
     padding: 10px;
-
+    box-shadow: inset 15px 5px 10px rgba(154, 147, 140, 0.5);
 }
 /*.header img {*/
 /*  background-image: url("../../images/logo1.png");*/

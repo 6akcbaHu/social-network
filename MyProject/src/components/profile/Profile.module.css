@@ -1,8 +1,20 @@
-.content{
-    grid-area:c;
-    background-color: darkcyan;
-    max-height: 100%;
+.content {
+    grid-area: c;
+    background-color: lightgray;
+    border-radius: 8px;
+    /*height: 100%;*/
 }
-.content img{
-    width: 50%;
+
+.profile {
+    display: flex;
+    justify-content: start;
+    /*width: 90%;*/
+}
+.profile__logo{
+width: 40%;
+}
+
+.profile__logo img {
+    width: 250px;
+    height: 250px;
 }
