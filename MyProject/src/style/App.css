@@ -1,0 +1,18 @@
+@import './nullStyle.css';
+
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+    background-image: url("https://images.wallpaperscraft.ru/image/poverhnost_fon_odnotonnyy_temnyy_50697_1920x1080.jpg");
+    /*background-size: cover;*/
+}
+
+.content__item {
+    display: flex;
+  max-width: 60vw;
+    margin: 0 auto;
+
+}

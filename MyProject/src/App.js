@@ -1,27 +1,35 @@
-import './App.css';
+import './style/App.css';
 import React from 'react';
-import Header from "./components/header/Header";
-import NavBar from "./components/navBar/NavBar.jsx";
-import Profile from "./components/profile/Profile.jsx";
-import Dialogs from "./components/dialogs/Dialogs";
+import Header from "./componets/Header/header";
+import NavBar from "./componets/NavBar/NavBar";
+import Profile from "./componets/Profile/Profile";
+import Dialogs from "./componets/Dialog/Dialog";
+import Friends from "./componets/Friends/Friends";
+import Footer from "./componets/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
 import Route from "react-router-dom/es/Route";
 
 
-function App() {
+
+
+function App(props) {
+
     return (
         <BrowserRouter>
-            <div className='app-wrapper'>
+            <div className="wrapper">
                 <Header/>
-                <div className="wrapper-container">
-                    <NavBar/>
-                    <div className='app-wrapper-content'>
+                <div className="content">
 
-                        <Route path='/dialogs' component={Dialogs}/>
-                        <Route path='/profile' component={Profile}/>
+                    <div className="content__item">
+                        <NavBar state={props.state.navPage}/>
+                        <Route path='/profile' render={ () => <Profile state={props.state.profilesPage}/>}/>
+                        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
+                        <Route path='/friends' render={ () => <Friends state={props.state.friendsPage}/>}/>
                     </div>
-                </div>
 
+
+                </div>
+                <Footer/>
             </div>
         </BrowserRouter>
 
