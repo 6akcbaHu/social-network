@@ -32,7 +32,12 @@ let state={
             {id: 4,name: 'valera', message:'ggggsqqssqs',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
             {id: 5,name: 'igor', message:'ggggsqqssqs',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
             {id: 6,name: 'Liver', message:'privet',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-        ]
+        ],
+        myMessages : [
+            {id: 1,name: 'dima.k', message:'hi',img:"https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"},
+            {id: 2,name: 'sveta.lala', message:'hello',img:"https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"},
+
+        ],
     },
     navPage: {
         itemsNav: [

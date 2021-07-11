@@ -9,6 +9,7 @@
 
 .page__area__text{
     width: 100%;
+    margin-top: 10px;
 }
 .page__area__text textarea{
     /*width: 23vw;*/
@@ -22,10 +23,16 @@
 
 }
 .page__area__button{
+margin-top: 5px;
+
 
 }
 .page__area__button button{
     /*float: right;*/
-    border: #ebebeb solid 1px;
+    /*border: #ebebeb solid 1px;*/
+    width: 100px;
+    border: darkred solid 1px;
     border-radius: 5px;
+    background-color: lightslategray;
+    color: bisque;
 }

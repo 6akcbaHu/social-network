@@ -1,4 +1,4 @@
-.dialog{
+.dialog {
     display: flex;
     justify-content: space-between;
     background-color: darkgray;
@@ -8,41 +8,49 @@
     border-radius: 10px;
 
 }
-.dialog__name{
+
+.dialog__name {
     flex: 1 0 10vw;
     padding: 10px;
 
 }
-.dialog__message{
+
+.dialog__message {
     flex: 3 0 30vw;
     padding: 10px;
 }
-.dialog__name__name{
+
+.dialog__name__name {
     display: flex;
     align-items: center;
     border-bottom: darkolivegreen 1px solid;
     padding: 5px;
     margin-bottom: 10px;
 }
-.dialog__name__name img{
+
+.dialog__name__name img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
-.dialog__message_messages{
+
+.dialog__message_messages {
     padding: 10px;
 }
-.dialog__message__block{
+
+.dialog__message__block {
     display: flex;
-justify-content: space-between;
+    justify-content: space-between;
     margin-bottom: 50px;
     flex: 1 1 20%;
 }
-.null{
+
+.null {
     flex: 1 1 15%;
 }
-.dialog__message__block__foto{
+
+.dialog__message__block__foto {
     /*flex: 1 1 10%;*/
     width: 50px;
     height: 50px;
@@ -51,15 +59,49 @@ justify-content: space-between;
     margin-right: 20px;
 
 }
-.dialog__message__block__foto img{
+
+.dialog__message__block__foto img {
     width: 100%;
     height: 100%;
     border-radius: 50%;
 }
-.dialog__message__block__message{
+
+.dialog__message__block__message {
     flex: 1 1 65%;
     margin-right: 20px;
     background-color: bisque;
     border-radius: 10px;
     padding: 20px;
+}
+
+.dialog__message__btn {
+    width: 80%;
+    height: 120px;
+    margin: 0 auto;
+
+
+
+}
+
+.dialog__message__btn textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    padding: 10px;
+    border-radius: 15px;
+}
+.dialog__message__btn p{
+       float: right;
+    margin-top: 5px;
+    width: 100px;
+}
+.dialog__message__btn button{
+    width: 100%;
+    border: darkred solid 1px;
+    border-radius: 5px;
+    background-color: lightslategray;
+    color: bisque;
+
+
+    /*align-self: center;*/
 }
