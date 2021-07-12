@@ -3,16 +3,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import {addPost, updateNewPostText} from "./redux/state";
+// import {addPost, updateNewPostText} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
+import store from "./redux/state";
 
 
 export let rerenderEntireThree = (state) => {
+    debugger
     ReactDOM.render(
         <React.StrictMode>
 
             <BrowserRouter>
-                <App state={state} addPost={addPost} updateNewPostText={updateNewPostText}/>
+                <App state={state} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)}/>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
@@ -20,8 +22,8 @@ export let rerenderEntireThree = (state) => {
 }
 
 
-rerenderEntireThree(state)
+rerenderEntireThree(store.getState())
 
 
-subscribe(rerenderEntireThree);
+store.subscribe(rerenderEntireThree);
 
