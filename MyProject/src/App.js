@@ -11,7 +11,7 @@ import {Route} from "react-router-dom";
 
 
 function App(props) {
-debugger
+
     return (
         <BrowserRouter>
             <div className="wrapper">
@@ -21,8 +21,7 @@ debugger
                     <div className="content__item">
                         <NavBar state={props.state.navPage}/>
                         <Route path='/profile' render={() => <Profile profilesPage={props.state.profilesPage}
-                                                                      addPost={props.addPost}
-                                                                      updateNewPostText={props.updateNewPostText}/>}/>
+                                                                      dispatch={props.dispatch}/>}/>
                         <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
                         <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                     </div>

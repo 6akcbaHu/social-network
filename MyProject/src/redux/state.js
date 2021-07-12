@@ -8,8 +8,8 @@ import {
     faUserFriends
 } from "@fortawesome/free-solid-svg-icons";
 
-let store={
-     _state:{
+let store = {
+    _state: {
         profilesPage: {
             posts: [
                 {id: 1, message: 'Hi', likeCount: 73},
@@ -18,27 +18,67 @@ let store={
                 {id: 4, message: 'kykysssss', likeCount: 366},
                 {id: 4, message: 'kykysssss', likeCount: 366}
             ],
-            newPostText:'бычок',
+            newPostText: 'бычок',
         },
-        dialogsPage:{
-            dialogsData : [
+        dialogsPage: {
+            dialogsData: [
                 {id: 1, name: 'dima'},
                 {id: 2, name: 'sveta'},
                 {id: 3, name: 'kolya'},
                 {id: 4, name: 'valera'},
                 {id: 5, name: 'igor'}
             ],
-            messages : [
-                {id: 1,name: 'dima', message:'hi',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-                {id: 2,name: 'sveta', message:'hello',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-                {id: 3,name: 'kolya', message:'hi',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-                {id: 4,name: 'valera', message:'ggggsqqssqs',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-                {id: 5,name: 'igor', message:'ggggsqqssqs',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-                {id: 6,name: 'Liver', message:'privet',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+            messages: [
+                {
+                    id: 1,
+                    name: 'dima',
+                    message: 'hi',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
+                {
+                    id: 2,
+                    name: 'sveta',
+                    message: 'hello',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
+                {
+                    id: 3,
+                    name: 'kolya',
+                    message: 'hi',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
+                {
+                    id: 4,
+                    name: 'valera',
+                    message: 'ggggsqqssqs',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
+                {
+                    id: 5,
+                    name: 'igor',
+                    message: 'ggggsqqssqs',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
+                {
+                    id: 6,
+                    name: 'Liver',
+                    message: 'privet',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                },
             ],
-            myMessages : [
-                {id: 1,name: 'dima.k', message:'hi',img:"https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"},
-                {id: 2,name: 'sveta.lala', message:'hello',img:"https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"},
+            myMessages: [
+                {
+                    id: 1,
+                    name: 'dima.k',
+                    message: 'hi',
+                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"
+                },
+                {
+                    id: 2,
+                    name: 'sveta.lala',
+                    message: 'hello',
+                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"
+                },
 
             ],
         },
@@ -53,42 +93,85 @@ let store={
                 {url: '/setting', item: "Setting", icon: <FontAwesomeIcon icon={faCogs}/>},
             ]
         },
-        friendsPage:[
-            {id:1,name:'Dima.k',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:2,name:'Lena Korova',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:3,name:'Masha Svinyia',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:4,name:'Kolya Baran',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:5,name:'Den Shesnok',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:6,name:'Vlad Nedotepa',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:7,name:'Oleg Kokos',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:8,name:'Igor Petuh',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
-            {id:9,name:'Slavik kozel',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"}
+        friendsPage: [
+            {id: 1, name: 'Dima.k', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+            {
+                id: 2,
+                name: 'Lena Korova',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            },
+            {
+                id: 3,
+                name: 'Masha Svinyia',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            },
+            {
+                id: 4,
+                name: 'Kolya Baran',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            },
+            {
+                id: 5,
+                name: 'Den Shesnok',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            },
+            {
+                id: 6,
+                name: 'Vlad Nedotepa',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            },
+            {id: 7, name: 'Oleg Kokos', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+            {id: 8, name: 'Igor Petuh', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+            {
+                id: 9,
+                name: 'Slavik kozel',
+                img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            }
         ]
     },
-    getState(){
-         return this._state;
-    },
-    _rerenderEntireThree(){
+    _rerenderEntireThree() {
 
     },
-    addPost(){
-        let newPost={
-            id:5,
-            message:this._state.profilesPage.newPostText,
-            likeCount:0
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._rerenderEntireThree = observer;
+    },
+
+    addPost() {
+        let newPost = {
+            id: 5,
+            message: this._state.profilesPage.newPostText,
+            likeCount: 0
         }
         this._state.profilesPage.posts.push(newPost);
-        this._state.profilesPage.newPostText='';
+        this._state.profilesPage.newPostText = '';
         this._rerenderEntireThree(this._state);
     },
-    updateNewPostText(newText){
-debugger
-        this._state.profilesPage.newPostText=newText;
+    updateNewPostText(newText) {
+
+        this._state.profilesPage.newPostText = newText;
         this._rerenderEntireThree(this._state);
     },
-    subscribe(observer){
-        this._rerenderEntireThree=observer;
+
+    dispatch(action) {
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 5,
+                message: this._state.profilesPage.newPostText,
+                likeCount: 0
+            }
+            this._state.profilesPage.posts.push(newPost);
+            this._state.profilesPage.newPostText = '';
+            this._rerenderEntireThree(this._state);
+        }
+        else if(action.type === 'ADD-NEW-POST-TEXT'){
+            this._state.profilesPage.newPostText = action.newText;
+            this._rerenderEntireThree(this._state);
+        }
     }
+
 }
 
 // let rerenderEntireThree=()=>{

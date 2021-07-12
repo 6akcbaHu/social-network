@@ -3,18 +3,19 @@ import s from './MyPost.module.css';
 import Post from './Post/Post'
 
 const MyPost = (props) => {
-    console.log(props);
+debugger
     let postsData = props.posts.map(el => <Post message={el.message} like={el.likeCount}/>)
 
     let newPostElement = React.createRef();
     let addPost = () => {
         // let text = newPostElement.current.value;
-        props.addPost();
+        props.dispatch({type:'ADD-POST'});
         // props.updatePostText('');
     }
     let onPostChange = () => {
+
         let text = newPostElement.current.value;
-        props.updatePostText(text);
+        props.dispatch({type:'ADD-NEW-POST-TEXT', newText:text});
     }
     return (
         <div className={s.page}>

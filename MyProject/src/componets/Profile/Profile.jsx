@@ -3,6 +3,7 @@ import s from "../Profile/Profile.module.css";
 import FriendsProfile from "./FriendsProfile/FriendsProfile";
 import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
+
 const Profile = (props) => {
 
     return (
@@ -12,8 +13,7 @@ const Profile = (props) => {
                 <FriendsProfile/>
                 <MyPost posts={props.profilesPage.posts}
                         newPostText={props.profilesPage.newPostText}
-                        updatePostText={props.updateNewPostText}
-                        addPost={props.addPost}/>
+                        dispatch={props.dispatch}/>
             </div>
         </div>
 
