@@ -1,4 +1,5 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+// import {rerenderEntireThree} from "../render";
 import {
     faCamera, faCogs,
     faEnvelope,
@@ -7,6 +8,12 @@ import {
     faNewspaper,
     faUserFriends
 } from "@fortawesome/free-solid-svg-icons";
+
+
+let rerenderEntireThree=()=>{
+   console.log('ss');
+}
+
 let state={
     profilesPage: {
         posts: [
@@ -15,7 +22,8 @@ let state={
             {id: 3, message: 'kyky', likeCount: 21},
             {id: 4, message: 'kykysssss', likeCount: 366},
             {id: 4, message: 'kykysssss', likeCount: 366}
-        ]
+        ],
+        newPostText:'бычок'
     },
     dialogsPage:{
         dialogsData : [
@@ -61,5 +69,28 @@ let state={
         {id:8,name:'Igor Petuh',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
         {id:9,name:'Slavik kozel',img:"https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"}
     ]
+}
+
+window.state=state;
+
+export const addPost=()=>{
+    let newPost={
+        id:5,
+        message:state.profilesPage.newPostText,
+        likeCount:0
+    };
+    state.profilesPage.posts.push(newPost);
+    state.profilesPage.newPostText='';
+    rerenderEntireThree(state);
+}
+
+export const updateNewPostText=(newText)=>{
+
+    state.profilesPage.newPostText=newText;
+    rerenderEntireThree(state);
+}
+
+export const subscribe=(observer)=>{
+    rerenderEntireThree=observer;
 }
 export default state;

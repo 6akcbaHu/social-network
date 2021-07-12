@@ -7,9 +7,7 @@ import Dialogs from "./componets/Dialog/Dialog";
 import Friends from "./componets/Friends/Friends";
 import Footer from "./componets/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
-import Route from "react-router-dom/es/Route";
-
-
+import {Route} from "react-router-dom";
 
 
 function App(props) {
@@ -22,9 +20,11 @@ function App(props) {
 
                     <div className="content__item">
                         <NavBar state={props.state.navPage}/>
-                        <Route path='/profile' render={ () => <Profile state={props.state.profilesPage}/>}/>
-                        <Route path='/dialogs' render={ () => <Dialogs state={props.state.dialogsPage}/>}/>
-                        <Route path='/friends' render={ () => <Friends state={props.state.friendsPage}/>}/>
+                        <Route path='/profile' render={() => <Profile profilesPage={props.state.profilesPage}
+                                                                      addPost={props.addPost}
+                                                                      updateNewPostText={props.updateNewPostText}/>}/>
+                        <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                        <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                     </div>
 
 

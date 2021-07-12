@@ -10,7 +10,10 @@ const Profile = (props) => {
             <ProfileInfo/>
             <div className={s.profile__friendsPost}>
                 <FriendsProfile/>
-                <MyPost posts={props.state.posts}/>
+                <MyPost posts={props.profilesPage.posts}
+                        newPostText={props.profilesPage.newPostText}
+                        updatePostText={props.updateNewPostText}
+                        addPost={props.addPost}/>
             </div>
         </div>
 
