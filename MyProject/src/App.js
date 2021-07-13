@@ -22,7 +22,8 @@ function App(props) {
                         <NavBar state={props.state.navPage}/>
                         <Route path='/profile' render={() => <Profile profilesPage={props.state.profilesPage}
                                                                       dispatch={props.dispatch}/>}/>
-                        <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}/>}/>
+                        <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}
+                                                                      dispatch={props.dispatch}/>}/>
                         <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                     </div>
 

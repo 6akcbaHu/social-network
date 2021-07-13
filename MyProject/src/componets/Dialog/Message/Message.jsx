@@ -3,7 +3,7 @@ import s from ".././Dialog.module.css";
 
 
 const Message = (props) => {
-    console.log(props)
+
     return (<div className={s.dialog__message__block}>
             <div className={s.null}></div>
             <div className={s.dialog__message__block__foto}>
