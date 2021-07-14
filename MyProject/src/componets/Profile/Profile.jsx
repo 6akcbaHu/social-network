@@ -5,7 +5,7 @@ import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 
 const Profile = (props) => {
-
+debugger
     return (
         <div className={s.page}>
             <ProfileInfo/>

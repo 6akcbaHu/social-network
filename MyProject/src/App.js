@@ -13,7 +13,7 @@ import {Route} from "react-router-dom";
 function App(props) {
 
     return (
-        <BrowserRouter>
+
             <div className="wrapper">
                 <Header/>
                 <div className="content">
@@ -31,7 +31,7 @@ function App(props) {
                 </div>
                 <Footer/>
             </div>
-        </BrowserRouter>
+
 
     );
 }

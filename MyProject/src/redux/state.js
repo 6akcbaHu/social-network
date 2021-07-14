@@ -8,12 +8,12 @@ import {
     faUserFriends
 } from "@fortawesome/free-solid-svg-icons";
 import {text} from "@fortawesome/fontawesome-svg-core";
+import reducerProfile from "./reducerProfile";
+import reducerDialog from "./reducerDialog";
+import reducerNav from "./reducerNav";
+import reducerFriends from "./reducerFriends";
 
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'ADD-NEW-POST-TEXT';
 
-const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
-const UPDATE_NEW_MY_MESSAGE = 'ADD-NEW-MMY-MESSAGE';
 
 let store = {
     _state: {
@@ -41,58 +41,57 @@ let store = {
                     name: 'Me',
                     message: 'hi',
                     img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
-                    position:'left'
+                    position: 'left'
                 },
                 {
                     id: 2,
                     name: 'Me',
                     message: 'hello',
                     img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
-                    position:'left'
+                    position: 'left'
                 },
                 {
                     id: 3,
                     name: 'dima',
                     message: 'hi',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
                 {
                     id: 4,
                     name: 'sveta',
                     message: 'hello',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
                 {
                     id: 5,
                     name: 'kolya',
                     message: 'hi',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
                 {
                     id: 6,
                     name: 'valera',
                     message: 'ggggsqqssqs',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
                 {
                     id: 7,
                     name: 'igor',
                     message: 'ggggsqqssqs',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
                 {
                     id: 8,
                     name: 'Liver',
                     message: 'privet',
                     img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
-                    position:'right'
+                    position: 'right'
                 },
-
 
 
             ],
@@ -156,79 +155,15 @@ let store = {
         this._rerenderEntireThree = observer;
     },
 
-    addPost() {
-        let newPost = {
-            id: 5,
-            message: this._state.profilesPage.newPostText,
-            likeCount: 0
-        }
-        this._state.profilesPage.posts.push(newPost);
-        this._state.profilesPage.newPostText = '';
-        this._rerenderEntireThree(this._state);
-    },
-    updateNewPostText(newText) {
-
-        this._state.profilesPage.newPostText = newText;
-        this._rerenderEntireThree(this._state);
-    },
-    addMessage() {
-        let newMessage = {
-            id: this._state.dialogsPage.messages.length + 1,
-            message: this._state.dialogsPage.newMyMessage,
-            img: 'https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg',
-            position:'left'
-        }
-        this._state.dialogsPage.messages.push(newMessage)
-        this._state.dialogsPage.newMyMessage = '';
-        this._rerenderEntireThree(this._state);
-    },
-    updateNewMyMessage(newText) {
-
-        this._state.dialogsPage.newMyMessage = newText;
-        this._rerenderEntireThree(this._state);
-    },
     dispatch(action) {
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 5,
-                message: this._state.profilesPage.newPostText,
-                likeCount: 0
-            }
-            this._state.profilesPage.posts.push(newPost);
-            this._state.profilesPage.newPostText = '';
-            this._rerenderEntireThree(this._state);
-        } else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.profilesPage.newPostText = action.newText;
-            this._rerenderEntireThree(this._state);
-        } else if (action.type === ADD_MY_MESSAGE) {
-            let newMessage = {
-                id: this._state.dialogsPage.messages.length + 1,
-                name:'Me',
-                message: this._state.dialogsPage.newMyMessage,
-                img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
-                position:'left'
-            }
-            this._state.dialogsPage.messages.push(newMessage);
-            debugger
-            this._state.dialogsPage.newMyMessage = '';
-            this._rerenderEntireThree(this._state);
-        } else if (action.type === UPDATE_NEW_MY_MESSAGE) {
-            this._state.dialogsPage.newMyMessage = action.newText;
-            this._rerenderEntireThree(this._state);
-            // debugger
-        }
-
+        this._state.profilesPage = reducerProfile(this._state.profilesPage, action);
+        this._state.dialogsPage = reducerDialog(this._state.dialogsPage, action);
+        this._state.navPage = reducerNav(this._state.navPage, action);
+        this._state.friendsPage = reducerFriends(this._state.friendsPage, action);
+        this._rerenderEntireThree(this._state);
 
     }
-
-
 }
-export const addPostActionCreator = () => ({type: ADD_POST})
-export const updateNewPostTextActionCreator = (text) =>
-    ({type: UPDATE_NEW_POST_TEXT, newText: text})
 
 
-export const addMyMessageActionCreator = () => ({type: ADD_MY_MESSAGE})
-export const updateNewMyMessageActionCreator = (text) =>
-    ({type: UPDATE_NEW_MY_MESSAGE, newText: text})
 export default store;
