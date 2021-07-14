@@ -38,54 +38,62 @@ let store = {
             messages: [
                 {
                     id: 1,
-                    name: 'dima',
+                    name: 'Me',
                     message: 'hi',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
+                    position:'left'
                 },
                 {
                     id: 2,
-                    name: 'sveta',
+                    name: 'Me',
                     message: 'hello',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
+                    position:'left'
                 },
                 {
                     id: 3,
-                    name: 'kolya',
+                    name: 'dima',
                     message: 'hi',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
                 },
                 {
                     id: 4,
-                    name: 'valera',
-                    message: 'ggggsqqssqs',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    name: 'sveta',
+                    message: 'hello',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
                 },
                 {
                     id: 5,
-                    name: 'igor',
-                    message: 'ggggsqqssqs',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    name: 'kolya',
+                    message: 'hi',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
                 },
                 {
                     id: 6,
+                    name: 'valera',
+                    message: 'ggggsqqssqs',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
+                },
+                {
+                    id: 7,
+                    name: 'igor',
+                    message: 'ggggsqqssqs',
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
+                },
+                {
+                    id: 8,
                     name: 'Liver',
                     message: 'privet',
-                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+                    img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+                    position:'right'
                 },
-            ],
-            myMessages: [
-                {
-                    id: 1,
-                    name: 'dima.k',
-                    message: 'hi',
-                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"
-                },
-                {
-                    id: 2,
-                    name: 'sveta.lala',
-                    message: 'hello',
-                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"
-                },
+
+
 
             ],
             newMyMessage: '',
@@ -165,11 +173,12 @@ let store = {
     },
     addMessage() {
         let newMessage = {
-            id: this._state.dialogsPage.myMessages.length + 1,
+            id: this._state.dialogsPage.messages.length + 1,
             message: this._state.dialogsPage.newMyMessage,
-            img: 'https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg'
+            img: 'https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg',
+            position:'left'
         }
-        this._state.dialogsPage.myMessages.push(newMessage)
+        this._state.dialogsPage.messages.push(newMessage)
         this._state.dialogsPage.newMyMessage = '';
         this._rerenderEntireThree(this._state);
     },
@@ -193,12 +202,13 @@ let store = {
             this._rerenderEntireThree(this._state);
         } else if (action.type === ADD_MY_MESSAGE) {
             let newMessage = {
-                id: this._state.dialogsPage.myMessages.length + 1,
+                id: this._state.dialogsPage.messages.length + 1,
                 name:'Me',
                 message: this._state.dialogsPage.newMyMessage,
-                img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg"
+                img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
+                position:'left'
             }
-            this._state.dialogsPage.myMessages.push(newMessage);
+            this._state.dialogsPage.messages.push(newMessage);
             debugger
             this._state.dialogsPage.newMyMessage = '';
             this._rerenderEntireThree(this._state);

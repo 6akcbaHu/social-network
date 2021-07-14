@@ -3,15 +3,15 @@ import s from "../Dialog/Dialog.module.css";
 import {NavLink} from "react-router-dom";
 import DialogfItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
-import MyMessage from "./Message/MyMessage/MyMessage";
 import {addMyMessageActionCreator, updateNewMyMessageActionCreator} from "../../redux/state";
 
 const Dialog = (props) => {
-    console.log(props.state)
+
     let dialogsElements = props.state.dialogsData.map(el => <DialogfItem name={el.name} id={el.id}/>)
-    let messagesElements = props.state.messages.map(el => <Message message={el.message} img={el.img} name={el.name}/>)
-    let myMessagesElements = props.state.myMessages.map(el => <MyMessage message={el.message} img={el.img}
-                                                                         name={el.name}/>)
+    let messagesElements = props.state.messages.map(el => <Message message={el.message} img={el.img} name={el.name} position={el.position}/>)
+
+    // let myMessagesElements = props.state.myMessages.map(el => <MyMessage message={el.message} img={el.img}
+    //                                                                      name={el.name}/>)
 
     let newMessagePost = React.createRef();
 
@@ -37,7 +37,7 @@ const Dialog = (props) => {
                 </div>
                 <div className={s.dialog__message}>
                     {messagesElements}
-                    {myMessagesElements}
+                    {/*{myMessagesElements}*/}
                     <div className={s.dialog__message__btn}>
                         <textarea ref={newMessagePost} onChange={onMessageChange}
                                   value={props.state.newMyMessage}></textarea>

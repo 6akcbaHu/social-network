@@ -3,9 +3,12 @@ import s from ".././Dialog.module.css";
 
 
 const Message = (props) => {
-
-    return (<div className={s.dialog__message__block}>
-            <div className={s.null}></div>
+    let style={
+        float:props.position
+    }
+console.log(props.position)
+    return (<div className={s.dialog__message__block} style={style}>
+            {/*<div className={s.null}></div>*/}
             <div className={s.dialog__message__block__foto}>
                 <img
                     src={props.img}
