@@ -16,7 +16,7 @@ console.log(props.position)
                 <p>{props.name}</p>
             </div>
             <div className={s.dialog__message__block__message}>
-                {props.message}
+                <p>{props.message}</p>
             </div>
 
         </div>

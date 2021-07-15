@@ -5,12 +5,12 @@ import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 
 const Profile = (props) => {
-debugger
+
     return (
         <div className={s.page}>
             <ProfileInfo/>
             <div className={s.profile__friendsPost}>
-                <FriendsProfile/>
+                <FriendsProfile friends={props.friends.friendsList}/>
                 <MyPost posts={props.profilesPage.posts}
                         newPostText={props.profilesPage.newPostText}
                         dispatch={props.dispatch}/>

@@ -2,7 +2,10 @@ import React from 'react';
 import s from './FriendsProfile.module.css';
 
 
-const FriendsProfile = () => {
+const FriendsProfile = (props) => {
+    // console.log(props.friends)
+    // let friends=props.friends.map(el=><FriendsProfile name={el.name} img={el.img}/>)
+    // debugger
     return (
         <div className={s.content}>
             {/*<a href="">FriendsProfile</a>*/}
@@ -11,7 +14,7 @@ const FriendsProfile = () => {
             <div className={s.friends__item}>
                 <div className="friends__item__img">
                     <img src="https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg" alt=""/>
-                    <span>Dima.k</span>
+                    <span>}</span>
                 </div>
             </div>
             <div className={s.friends__item}>

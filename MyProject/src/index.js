@@ -1,11 +1,11 @@
-import state, {subscribe} from "./redux/state";
+import state, {subscribe} from "./redux/store";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 // import {addPost, updateNewPostText} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
-import store from "./redux/state";
+import store from "./redux/redaxStore";
 
 
 export let rerenderEntireThree = (state) => {
@@ -25,5 +25,8 @@ export let rerenderEntireThree = (state) => {
 rerenderEntireThree(store.getState())
 
 
-store.subscribe(rerenderEntireThree);
+store.subscribe(()=>{
+    let state=store.getState();
+    rerenderEntireThree(state);
+});
 

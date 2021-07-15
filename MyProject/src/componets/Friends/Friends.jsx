@@ -1,6 +1,7 @@
 import s from './Friends.module.css';
 
 const SubblockFriends = (props) => {
+
     return (
         <div className={s.friends__friendsList}>
             <div className={s.friends__friendsList__foto}>
@@ -15,7 +16,8 @@ const SubblockFriends = (props) => {
     )
 }
 const Friends = (props) => {
-    let friends = props.state.map(f => <SubblockFriends img={f.img} name={f.name}/>)
+
+    let friends = props.state.friendsList.map(f => <SubblockFriends img={f.img} name={f.name}/>)
     console.log(props)
     return (
         <div className={s.friends}>

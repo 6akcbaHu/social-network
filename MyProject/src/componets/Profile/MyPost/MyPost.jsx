@@ -7,7 +7,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 
 const MyPost = (props) => {
-debugger
+
     let postsData = props.posts.map(el => <Post message={el.message} like={el.likeCount}/>)
 
     let newPostElement = React.createRef();
@@ -24,7 +24,7 @@ debugger
         let action=updateNewPostTextActionCreator(text)
         props.dispatch(action);
     }
-    debugger
+
     return (
         <div className={s.page}>
             {/*<div className={s.page__post}>MyPost</div>*/}

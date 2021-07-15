@@ -21,6 +21,7 @@ function App(props) {
                     <div className="content__item">
                         <NavBar state={props.state.navPage}/>
                         <Route path='/profile' render={() => <Profile profilesPage={props.state.profilesPage}
+                                                                      friends={props.state.friendsPage}
                                                                       dispatch={props.dispatch}/>}/>
                         <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}
                                                                       dispatch={props.dispatch}/>}/>
