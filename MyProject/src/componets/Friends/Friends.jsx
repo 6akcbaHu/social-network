@@ -18,7 +18,7 @@ const SubblockFriends = (props) => {
 const Friends = (props) => {
 
     let friends = props.state.friendsList.map(f => <SubblockFriends img={f.img} name={f.name}/>)
-    console.log(props)
+
     return (
         <div className={s.friends}>
             <div className={s.friends__search}>

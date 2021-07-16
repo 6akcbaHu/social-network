@@ -4,9 +4,11 @@ import FriendsItem from "./FriendsItem/FriendsItem";
 
 
 const FriendsProfile = (props) => {
+
+   debugger
     // console.log(props.friends)
     // eslint-disable-next-line react/jsx-no-undef
-    let friends=props.friends.map(el=><FriendsItem name={el.name} img={el.img}/>)
+    let friends=props.friendsList.map(el=><FriendsItem name={el.name} img={el.img}/>)
     // debugger
     return (
         <div className={s.content}>

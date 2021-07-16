@@ -8,6 +8,8 @@ import Friends from "./componets/Friends/Friends";
 import Footer from "./componets/Footer/Footer";
 import {BrowserRouter} from "react-router-dom";
 import {Route} from "react-router-dom";
+import store from "./redux/redaxStore";
+import DialogContainer from "./componets/Dialog/DialogСontainer";
 
 
 function App(props) {
@@ -20,11 +22,8 @@ function App(props) {
 
                     <div className="content__item">
                         <NavBar state={props.state.navPage}/>
-                        <Route path='/profile' render={() => <Profile profilesPage={props.state.profilesPage}
-                                                                      friends={props.state.friendsPage}
-                                                                      dispatch={props.dispatch}/>}/>
-                        <Route path='/dialogs' render={() => <Dialogs state={props.state.dialogsPage}
-                                                                      dispatch={props.dispatch}/>}/>
+                        <Route path='/profile' render={() => <Profile store={props.store}/>}/>
+                        <Route path='/dialogs' render={() => <DialogContainer store={props.store}/>}/>
                         <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
                     </div>
 
