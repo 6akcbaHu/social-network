@@ -1,16 +1,12 @@
 import './style/App.css';
 import React from 'react';
 import Header from "./componets/Header/header";
-import NavBar from "./componets/NavBar/NavBar";
 import Profile from "./componets/Profile/Profile";
-import Dialogs from "./componets/Dialog/Dialog";
-import Friends from "./componets/Friends/Friends";
 import Footer from "./componets/Footer/Footer";
-import {BrowserRouter} from "react-router-dom";
 import {Route} from "react-router-dom";
-import store from "./redux/redaxStore";
 import DialogContainer from "./componets/Dialog/DialogСontainer";
-
+import NavBarContainer from "./componets/NavBar/NavBarContainer";
+import FriendsContainer from "./componets/Friends/FriendsContainer";
 
 function App(props) {
 
@@ -21,10 +17,10 @@ function App(props) {
                 <div className="content">
 
                     <div className="content__item">
-                        <NavBar state={props.state.navPage}/>
+                        <NavBarContainer store={props.store}/>
                         <Route path='/profile' render={() => <Profile store={props.store}/>}/>
                         <Route path='/dialogs' render={() => <DialogContainer store={props.store}/>}/>
-                        <Route path='/friends' render={() => <Friends state={props.state.friendsPage}/>}/>
+                        <Route path='/friends' render={() => <FriendsContainer store={props.store}/>}/>
                     </div>
 
 

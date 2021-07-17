@@ -6,6 +6,7 @@ import App from './App';
 // import {addPost, updateNewPostText} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 import store from "./redux/redaxStore";
+import StoreContext from "./StoreContext";
 
 
 export let rerenderEntireThree = (state) => {
@@ -14,7 +15,9 @@ export let rerenderEntireThree = (state) => {
         <React.StrictMode>
 
             <BrowserRouter>
-                <App state={state} dispatch={store.dispatch.bind(store)} store={store}/>
+                <StoreContext.Provider value={store}>
+                <App store={store}/>
+                </StoreContext.Provider>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')

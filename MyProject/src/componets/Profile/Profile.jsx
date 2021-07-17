@@ -1,7 +1,5 @@
 import React from 'react';
 import s from "../Profile/Profile.module.css";
-// import FriendsProfile from "./FriendsProfile/FriendsProfile";
-// import MyPost from "./MyPost/MyPost";
 import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import MyPostContainer from "./MyPost/MyPostContainer";
 import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";

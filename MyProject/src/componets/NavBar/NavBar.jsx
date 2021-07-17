@@ -29,7 +29,8 @@ function Links(props) {
 }
 
 function NavBar(props) {
-    let link = props.state.itemsNav.map(i => <Links url={i.url} icon={i.icon} item={i.item}/>)
+
+    let link = props.state.map(i => <Links url={i.url} icon={i.icon} item={i.item}/>)
     return (
         <nav className={s.nav}>
             <ul>
@@ -38,45 +39,6 @@ function NavBar(props) {
         </nav>
     )
 }
-// const NavBar=()=>{
-//     return(
-//         <ul className={s.nav}>
-//             <NavLink to="/profile">
-//                 <li className={s.nav__item}>
-//                     <p><FontAwesomeIcon icon={faCamera}/></p>
-//                     <span>Profile</span>
-//                 </li>
-//             </NavLink>
-//             <NavLink to="/profile">
-//                 <li className={s.nav__item}>
-//                     <p><FontAwesomeIcon icon={faCamera}/></p>
-//                     <span>Profile</span>
-//                 </li>
-//             </NavLink>
-//         </ul>
-      // <ul className={s.nav}>
-      //     <li className={s.nav__item}>
-      //       <p>   <FontAwesomeIcon icon={faCamera}/></p>
-      //         <div className={s.ni__text}><NavLink to="/profile">Profile</NavLink></div>
-      //     </li>
-      //     <li className={s.nav__item}>
-      //         <p>   <FontAwesomeIcon icon={faCamera}/></p>
-      //         <div className={`${s.ni__text} ${s.active}`}><NavLink to="/dialog">Message</NavLink></div>
-      //     </li>
-      //     <li className={s.nav__item}>
-      //         <p>   <FontAwesomeIcon icon={faCamera}/></p>
-      //         <div className={s.ni__text}><NavLink to="/news">News</NavLink></div>
-      //     </li>
-      //     <li className={s.nav__item}>
-      //         <p>   <FontAwesomeIcon icon={faCamera}/></p>
-      //         <div className={s.ni__text}><NavLink to="/music">Music</NavLink></div>
-      //     </li>
-      //     <li className={s.nav__item}>
-      //         <p>   <FontAwesomeIcon icon={faCamera}/></p>
-      //         <div className={s.ni__text}><NavLink to="/settings">Settings</NavLink></div>
-      //     </li>
-      // </ul>
-//     )
-// }
+
 
 export default NavBar;
