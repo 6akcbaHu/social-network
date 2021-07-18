@@ -17,10 +17,10 @@ function App(props) {
                 <div className="content">
 
                     <div className="content__item">
-                        <NavBarContainer store={props.store}/>
-                        <Route path='/profile' render={() => <Profile store={props.store}/>}/>
-                        <Route path='/dialogs' render={() => <DialogContainer store={props.store}/>}/>
-                        <Route path='/friends' render={() => <FriendsContainer store={props.store}/>}/>
+                        <NavBarContainer/>
+                        <Route path='/profile' render={() => <Profile/>}/>
+                        <Route path='/dialogs' render={() => <DialogContainer/>}/>
+                        <Route path='/friends' render={() => <FriendsContainer/>}/>
                     </div>
 
 

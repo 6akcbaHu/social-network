@@ -6,30 +6,32 @@ import App from './App';
 // import {addPost, updateNewPostText} from "./redux/state";
 import {BrowserRouter} from "react-router-dom";
 import store from "./redux/redaxStore";
-import StoreContext from "./StoreContext";
+// import StoreContext from "./StoreContext";
+import {Provider} from "react-redux";
+// import {Provider} from "./StoreContext";
 
 
-export let rerenderEntireThree = (state) => {
+// export let rerenderEntireThree = (state) => {
 
     ReactDOM.render(
         <React.StrictMode>
 
             <BrowserRouter>
-                <StoreContext.Provider value={store}>
-                <App store={store}/>
-                </StoreContext.Provider>
+                <Provider store={store}>
+                <App />
+                </Provider>
             </BrowserRouter>
         </React.StrictMode>,
         document.getElementById('root')
     );
-}
+// }
 
-
-rerenderEntireThree(store.getState())
-
-
-store.subscribe(()=>{
-    let state=store.getState();
-    rerenderEntireThree(state);
-});
+//
+// rerenderEntireThree(store.getState())
+//
+//
+// store.subscribe(()=>{
+//     let state=store.getState();
+//     rerenderEntireThree(state);
+// });
 

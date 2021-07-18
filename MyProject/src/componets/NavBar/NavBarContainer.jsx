@@ -3,12 +3,29 @@ import s from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
 import NavBar from "./NavBar";
 
-function NavBarContainer(props) {
-    let state=props.store.getState()
+import {connect} from "react-redux";
 
-    // let link = props.state.itemsNav.map(i => <Links url={i.url} icon={i.icon} item={i.item}/>)
-    return (<NavBar state={state.navPage.itemsNav}/>)
+// function NavBarContainer(props) {
+//
+//     return (
+//         <StoreContext.Consumer>
+//             {(store) => {
+//                 let state = store.getState()
+//                 return <NavBar state={state.navPage.itemsNav}/>
+//
+//             }}
+//
+//         </StoreContext.Consumer>
+//
+//     )
+// }
+let mapStateToProps=(state)=>{
+    return{
+        state:state.navPage.itemsNav
+    }
 }
-
-
+// let mapDispatchToProps=()=>{
+//     return
+// }
+const NavBarContainer=connect(mapStateToProps)(NavBar)
 export default NavBarContainer;

@@ -10,8 +10,8 @@ const Profile = (props) => {
         <div className={s.page}>
             <ProfileInfo/>
             <div className={s.profile__friendsPost}>
-                <FriendsProfileContainer store={props.store}/>
-                <MyPostContainer store={props.store}/>
+                <FriendsProfileContainer/>
+                <MyPostContainer/>
             </div>
         </div>
 
