@@ -3,11 +3,18 @@
 flex: 1 0 20%;
     background-color: darkgray;
     /*width: 200px;*/
-    height: 350px;
+    height: 400px;
     border-radius: 10px;
     padding: 20px;
 }
+/*.nav p{*/
+/*    width: 50px;*/
 
+/*}*/
+/*.p img{*/
+/*    width: 50px;*/
+
+/*}*/
 .nav__item {
     display: flex;
     margin-bottom: 25px;

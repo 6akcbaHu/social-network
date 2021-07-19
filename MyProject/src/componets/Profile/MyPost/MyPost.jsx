@@ -6,8 +6,7 @@ import {addPostActionCreator, updateNewPostTextActionCreator} from "../../../red
 
 const MyPost = (props) => {
 
-    let postsData = props.posts.map(el => <Post message={el.message} like={el.likeCount}/>)
-
+    let postsData = props.posts.map(el => <Post message={el.message} key={el.id} like={el.likeCount}/>)
     let newPostElement = React.createRef();
     let addPost = () => {
 

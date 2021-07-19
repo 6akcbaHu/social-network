@@ -1,0 +1,61 @@
+.users {
+    flex: 1 1 80%;
+    background-color: darkgrey;
+    margin-left: 15px;
+    border-radius: 10px;
+
+}
+
+.users__input {
+    width: 100%;
+    padding: 15px;
+}
+
+.users__input input {
+    width: 250px;
+    height: 30px;
+
+}
+
+.users__item {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 10px;
+    width: 98%;
+    padding: 5px;
+    /*padding: 15px;*/
+    border-bottom: darkred solid 1px;;
+
+
+}
+
+.users__item__foto {
+    flex: 1 1 15%;
+    padding-bottom: 10px;
+    height: 150px;
+}
+
+.users__item__foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.users__item__name {
+    flex: 1 1 65%;
+    padding: 10px;
+}
+
+.users__item__name p:first-child {
+    padding-bottom: 15px;
+}
+
+.users__item__button {
+    text-align: center;
+    flex: 1 1 20%;
+}
+
+.users__item__button button {
+    width: 70%;
+    height: 30px;
+}

@@ -1,7 +1,7 @@
 const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
 const UPDATE_NEW_MY_MESSAGE = 'ADD-NEW-MMY-MESSAGE';
 
-let initialState={
+let initialState = {
     dialogsData: [
         {id: 1, name: 'dima'},
         {id: 2, name: 'sveta'},
@@ -79,23 +79,27 @@ let initialState={
     newMyMessage: '',
 }
 
-const reducerDialog = (state=initialState, action) => {
+const reducerDialog = (state = initialState, action) => {
+
     switch (action.type) {
         case ADD_MY_MESSAGE:
-            let newMessage = {
-                id: state.messages.length + 1,
-                name: 'Me',
-                message: state.newMyMessage,
-                img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
-                position: 'left'
-            }
-            state.messages.push(newMessage);
+            return {
+                ...state,
+                newMyMessage: '',
+                messages: [...state.messages, {
+                    id: state.messages.length + 1,
+                    name: 'Me',
+                    message: state.newMyMessage,
+                    img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
+                    position: 'left'
+                }]
+            };
 
-            state.newMyMessage = '';
-            return state;
         case UPDATE_NEW_MY_MESSAGE:
-            state.newMyMessage = action.newText;
-            return state;
+            return {
+                ...state,
+                newMyMessage: action.newText
+            };
         default:
             return state;
     }

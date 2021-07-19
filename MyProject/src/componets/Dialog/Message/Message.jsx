@@ -6,7 +6,7 @@ const Message = (props) => {
     let style={
         float:props.position
     }
-console.log(props.position)
+
     return (<div className={s.dialog__message__block} style={style}>
             {/*<div className={s.null}></div>*/}
             <div className={s.dialog__message__block__foto}>

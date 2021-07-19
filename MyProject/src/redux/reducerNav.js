@@ -1,22 +1,24 @@
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
-    faCamera, faCogs,
+    faCamera, faCog,
+    faUsers,
     faEnvelope,
-    faHouseUser,
+    faUserAlt,
     faMusic,
-    faNewspaper,
+    faTv,
     faUserFriends
 } from "@fortawesome/free-solid-svg-icons";
 
 let initialState={
     itemsNav: [
-        {url: '/profile', item: "My profile", icon: <FontAwesomeIcon icon={faHouseUser}/>},
-        {url: '/dialogs', item: "Messages", icon: <FontAwesomeIcon icon={faEnvelope}/>},
-        {url: '/friends', item: "Friends", icon: <FontAwesomeIcon icon={faUserFriends}/>},
-        {url: '/news', item: "News", icon: <FontAwesomeIcon icon={faNewspaper}/>},
-        {url: '/photos', item: "Photos", icon: <FontAwesomeIcon icon={faCamera}/>},
-        {url: '/music', item: "Music", icon: <FontAwesomeIcon icon={faMusic}/>},
-        {url: '/setting', item: "Setting", icon: <FontAwesomeIcon icon={faCogs}/>},
+        {id:1,url: '/profile', item: "My profile", icon: <FontAwesomeIcon icon={faUserAlt}/>},
+        {id:2,url: '/allusers', item: "All Users", icon: <FontAwesomeIcon icon={faUsers}/>},
+        {id:3,url: '/dialogs', item: "Messages", icon: <FontAwesomeIcon icon={faEnvelope}/>},
+        {id:4,url: '/friends', item: "Friends", icon: <FontAwesomeIcon icon={faUserFriends}/>},
+        {id:5,url: '/news', item: "News", icon: <FontAwesomeIcon icon={faTv}/>},
+        {id:6,url: '/photos', item: "Photos", icon: <FontAwesomeIcon icon={faCamera}/>},
+        {id:7,url: '/music', item: "Music", icon: <FontAwesomeIcon icon={faMusic}/>},
+        {id:8,url: '/setting', item: "Setting", icon: <FontAwesomeIcon icon={faCog}/>},
     ]
 };
 
