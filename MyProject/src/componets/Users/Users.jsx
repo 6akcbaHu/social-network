@@ -5,7 +5,7 @@ import AvaUsers from "../../images/users.jpg";
 
 
 // const Users = (props) => {
-//
+// console.log(props.currentPage)
 //     if (props.users.length === 0) {
 //         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response=>{
 //                    props.setUsers(response.data.items)
@@ -40,19 +40,29 @@ import AvaUsers from "../../images/users.jpg";
 //                     </div>
 //                 </div>
 //             )}
+//             <button onClick={props.setCurrentPage(props.currentPage)}>Show more</button>
 //         </div>
 //     )
 // }
 class Users extends React.Component {
 
     componentDidMount() {
-        axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
             this.props.setUsers(response.data.items)
+
         })
+
     }
 
-    render() {
+    nextPage() {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+            this.props.setCurrentPage(response.data.items,this.props.currentPage+1)
 
+
+        })
+        }
+
+    render() {
 
         return (
 
@@ -82,9 +92,11 @@ class Users extends React.Component {
                         </div>
                     </div>
                 )}
+                <button className={s.user__button}  onClick={()=>{this.nextPage()} }>Show more</button>
             </div>
         )
     }
+
 }
 
 export default Users;
