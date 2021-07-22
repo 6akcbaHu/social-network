@@ -3,42 +3,42 @@ let initialState={
         {id: 1, name: 'Dima.k', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
         {
             id: 2,
-            name: 'Lena Korova',
+            name: 'Lena ',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 3,
-            name: 'Masha Svinyia',
+            name: 'Masha ',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 4,
-            name: 'Kolya Baran',
+            name: 'Kolya',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 5,
-            name: 'Den Shesnok',
+            name: 'Den S',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 6,
-            name: 'Vlad Nedotepa',
+            name: 'Vlad N',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 7,
-            name: 'Oleg Kokos',
+            name: 'Oleg K',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 8,
-            name: 'Igor Petuh',
+            name: 'Igor P',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         },
         {
             id: 9,
-            name: 'Slavik kozel',
+            name: 'Slavik k',
             img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
         }
     ]
