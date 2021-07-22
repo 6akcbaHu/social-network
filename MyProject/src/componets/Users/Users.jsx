@@ -1,101 +1,44 @@
 import React from "react";
 import s from "./Users.module.css"
-import * as axios from "axios";
 import AvaUsers from "../../images/users.jpg";
 
+const Users = (props) => {
 
-// const Users = (props) => {
-// console.log(props.currentPage)
-//     if (props.users.length === 0) {
-//         axios.get("https://social-network.samuraijs.com/api/1.0/users").then(response=>{
-//                    props.setUsers(response.data.items)
-//     })
-//     }
-//
-//     return (
-//
-//
-//         <div className={s.users}>
-//             <div className={s.users__input}>
-//                 <input type="text"/>
-//             </div>
-//
-//             {props.users.map(u =>
-//
-//                 <div key={u.id} className={s.users__item}>
-//                     <div className={s.users__item__foto}>
-//                         <img src={u.photos.small!=null?u.photos.small:AvaUsers}/>
-//                     </div>
-//                     <div className={s.users__item__name}>
-//                         <p>{u.name}</p>
-//                         <p>{'u.location.city'}</p>
-//                         <p><p>{'u.location.conutry'}</p></p>
-//                     </div>
-//                     <div className={s.users__item__button}>
-//                         {u.followed
-//                         ? <button onClick={()=>
-//                         props.unfollow(u.id)}>unfollow</button>
-//                         :<button onClick={()=>
-//                         props.follow(u.id)}>follow</button>}
-//                     </div>
-//                 </div>
-//             )}
-//             <button onClick={props.setCurrentPage(props.currentPage)}>Show more</button>
-//         </div>
-//     )
-// }
-class Users extends React.Component {
-
-    componentDidMount() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.setUsers(response.data.items)
-
-        })
-
-    }
-
-    nextPage() {
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
-            this.props.setCurrentPage(response.data.items,this.props.currentPage+1)
+    return (
 
 
-        })
-        }
-
-    render() {
-
-        return (
-
-
-            <div className={s.users}>
-                <div className={s.users__input}>
-                    <input type="text"/>
-                </div>
-
-                {this.props.users.map(u =>
-
-                    <div key={u.id} className={s.users__item}>
-                        <div className={s.users__item__foto}>
-                            <img src={u.photos.small != null ? u.photos.small : AvaUsers}/>
-                        </div>
-                        <div className={s.users__item__name}>
-                            <p>{u.name}</p>
-                            <p>{'u.location.city'}</p>
-                            <p><p>{'u.location.conutry'}</p></p>
-                        </div>
-                        <div className={s.users__item__button}>
-                            {u.followed
-                                ? <button onClick={() =>
-                                    this.props.unfollow(u.id)}>unfollow</button>
-                                : <button onClick={() =>
-                                    this.props.follow(u.id)}>follow</button>}
-                        </div>
-                    </div>
-                )}
-                <button className={s.user__button}  onClick={()=>{this.nextPage()} }>Show more</button>
+        <div className={s.users}>
+            <div className={s.users__input}>
+                <input type="text"/>
             </div>
-        )
-    }
+
+            {props.users.map(u =>
+
+                <div key={u.id} className={s.users__item}>
+                    <div className={s.users__item__foto}>
+                        <img src={u.photos.small != null ? u.photos.small : AvaUsers}/>
+                    </div>
+                    <div className={s.users__item__name}>
+                        <p>{u.name}</p>
+                        <p>{'u.location.city'}</p>
+                        <p>{'u.location.conutry'}</p>
+                    </div>
+                    <div className={s.users__item__button}>
+                        {u.followed
+                            ? <button onClick={() =>
+                                props.unfollow(u.id)}>unfollow</button>
+                            : <button onClick={() =>
+                                props.follow(u.id)}>follow</button>}
+                    </div>
+                </div>
+            )}
+            <button className={s.user__button} onClick={() => {
+                props.nextPage()
+            }}>Show more
+            </button>
+        </div>
+    )
+
 
 }
 

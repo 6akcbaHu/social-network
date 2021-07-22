@@ -2,18 +2,20 @@ const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE='SET_CURRENT_PAGE';
+const TOGGLE_IS_FETCHING='TOGGLE_IS_FETCHING';
 
 let initialState = {
     users: [],
     pageSize:10,
     totalUsersCount:0,
-    currentPage:1
+    currentPage:1,
+    isFetching:true
 
 
 }
 
 const reducerUser = (state = initialState, action) => {
-    console.log(action)
+
     switch (action.type) {
         case FOLLOW:
             return {
@@ -43,8 +45,12 @@ const reducerUser = (state = initialState, action) => {
             return {...state,
                 users: [...state.users,...action.users],
                 currentPage:action.page
-// console.log (typeof action.page)
+
             }
+
+        }
+        case TOGGLE_IS_FETCHING:{
+            return {...state,isFetching:action.isFetching}
 
         }
         default:
@@ -56,4 +62,5 @@ export const followeAC = (userId) => ({type: FOLLOW, userId})
 export const unfolloweAC = (userId) => ({type: UNFOLLOW, userId})
 export const setUsersAC = (users) => ({type: SET_USERS, users})
 export const setCurrentPageAC=(users,page)=>({type: SET_CURRENT_PAGE, users,page})
+export const toggleIsFatchingAC=(isFetching)=>({type:TOGGLE_IS_FETCHING,isFetching})
 export default reducerUser;
