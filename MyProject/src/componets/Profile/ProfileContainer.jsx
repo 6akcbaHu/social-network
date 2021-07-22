@@ -10,10 +10,14 @@ import {setUserProfile} from "../../redux/reducerProfile";
 import {withRouter} from "react-router-dom";
 
 class ProfileContainer extends React.Component {
-
     componentDidMount = () => {
+
+        let userId=this.props.match.params.userId;
+        if(!userId){
+            userId=2
+        }
         // this.props.toggleIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+this.props.match.params.userId).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/`+userId).then(response => {
             // this.props.toggleIsFatching(false);
 
             this.props.setUserProfile(response.data)
