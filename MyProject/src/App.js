@@ -9,6 +9,7 @@ import NavBarContainer from "./componets/NavBar/NavBarContainer";
 import FriendsContainer from "./componets/Friends/FriendsContainer";
 import AllUsers from "./componets/Users/Users";
 import UsersContainer from "./componets/Users/UsersContainer";
+import ProfileContainer from "./componets/Profile/ProfileContainer";
 
 function App(props) {
 
@@ -20,7 +21,7 @@ function App(props) {
 
                     <div className="content__item">
                         <NavBarContainer/>
-                        <Route path='/profile' render={() => <Profile/>}/>
+                        <Route path='/profile' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogContainer/>}/>
                         <Route path='/friends' render={() => <FriendsContainer/>}/>
                         <Route path='/allusers' render={() => <UsersContainer/>}/>

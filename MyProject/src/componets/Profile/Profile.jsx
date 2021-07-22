@@ -5,10 +5,10 @@ import MyPostContainer from "./MyPost/MyPostContainer";
 import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";
 
 const Profile = (props) => {
-
+console.log(props)
     return (
         <div className={s.page}>
-            <ProfileInfo/>
+            <ProfileInfo profile={props.profile}/>
             <div className={s.profile__friendsPost}>
                 <FriendsProfileContainer/>
                 <MyPostContainer/>

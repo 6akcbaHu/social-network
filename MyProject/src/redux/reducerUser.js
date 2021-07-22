@@ -58,9 +58,9 @@ const reducerUser = (state = initialState, action) => {
     }
 
 }
-export const followeAC = (userId) => ({type: FOLLOW, userId})
-export const unfolloweAC = (userId) => ({type: UNFOLLOW, userId})
-export const setUsersAC = (users) => ({type: SET_USERS, users})
-export const setCurrentPageAC=(users,page)=>({type: SET_CURRENT_PAGE, users,page})
-export const toggleIsFatchingAC=(isFetching)=>({type:TOGGLE_IS_FETCHING,isFetching})
+export const follow = (userId) => ({type: FOLLOW, userId})
+export const unfollow = (userId) => ({type: UNFOLLOW, userId})
+export const setUsers = (users) => ({type: SET_USERS, users})
+export const setCurrentPage=(users,page)=>({type: SET_CURRENT_PAGE, users,page})
+export const toggleIsFatching=(isFetching)=>({type:TOGGLE_IS_FETCHING,isFetching})
 export default reducerUser;
