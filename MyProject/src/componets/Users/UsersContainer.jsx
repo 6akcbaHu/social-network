@@ -15,7 +15,7 @@ class UsersСontainer extends React.Component {
 
     componentDidMount = () => {
         this.props.toggleIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true}).then(response => {
             this.props.toggleIsFatching(false);
             this.props.setUsers(response.data.items)
 
@@ -26,7 +26,7 @@ class UsersСontainer extends React.Component {
 
     nextPage = () => {
         this.props.toggleIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage + 1}&count=${this.props.pageSize}`).then(response => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage + 1}&count=${this.props.pageSize}`, {withCredentials: true}).then(response => {
             this.props.toggleIsFatching(false);
             this.props.setCurrentPage(response.data.items, this.props.currentPage + 1)
         })

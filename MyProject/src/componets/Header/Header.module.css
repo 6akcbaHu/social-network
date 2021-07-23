@@ -1,21 +1,40 @@
-.header{
+.header {
     width: 70vw;
-    /*height: 70px;*/
+    height: 80px;
     text-align: center;
+
     margin: 15px auto;
+    /*display: flex;*/
     background-image: url("../../images/header/clouds-header.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     padding: 15px;
     border: darkgray solid 1px;
     border-radius: 10px;
-
+    /*justify-content: flex-end;*/
+    position: relative;
 }
-.header img{
+.header__logo{
+
+    /*flex: 1 1 60%;*/
+    /*margin-left: auto;*/
+}
+.header__logo img {
+    /*margin-left: auto;*/
     width: 130px;
     height: 50px;
+    /*margin: 15px auto;*/
+    /*justify-content: center;*/
 }
-.header__login{
-    float: right;
+
+.header__login {
+    /*flex: 1 1 40%;*/
+    position: absolute;
+    right: 5px;
+    bottom: 30px;
+    width: 200px;
+    margin-left: auto;
     font-size: x-large;
+    /*padding-bottom: 10px;*/
+    /*margin-bottom: 50px;*/
 }

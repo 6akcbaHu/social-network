@@ -5,7 +5,7 @@ import MyPostContainer from "./MyPost/MyPostContainer";
 import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";
 
 const Profile = (props) => {
-debugger
+
     return (
         <div className={s.page}>
             <ProfileInfo profile={props.profile}/>
