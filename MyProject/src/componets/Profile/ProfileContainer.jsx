@@ -6,26 +6,18 @@ import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";
 import Profile from "./Profile";
 import * as axios from "axios";
 import {connect} from "react-redux";
-import {setUserProfile} from "../../redux/reducerProfile";
+import {setUserProfile, setUserProfileThunkCreator} from "../../redux/reducerProfile";
 import {withRouter} from "react-router-dom";
 import {getProfileUsers} from "../../api/api";
 
 class ProfileContainer extends React.Component {
     componentDidMount = () => {
-
         let userId=this.props.match.params.userId;
-        debugger
         if(!userId){
             userId=2
         }
-
-        getProfileUsers(userId).then(response => {
-
-
-            this.props.setUserProfile(response.data)
-
-
-        })
+        debugger
+       this.props.setUserProfileThunkCreator(userId)
 
     }
 
@@ -43,4 +35,4 @@ let mapStateToProps = (state) => {
 
 }
 let WithDataContainerComponent=withRouter(ProfileContainer)
-export default connect(mapStateToProps,{setUserProfile})(WithDataContainerComponent);
+export default connect(mapStateToProps,{setUserProfileThunkCreator})(WithDataContainerComponent);

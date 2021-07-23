@@ -2,7 +2,6 @@ import React from "react";
 import s from "./Users.module.css"
 import AvaUsers from "../../images/users.jpg";
 import {NavLink} from "react-router-dom";
-import * as axios from "axios";
 import {getFollowUsers, getUnFollowUsers} from "../../api/api";
 
 const Users = (props) => {
@@ -29,21 +28,13 @@ const Users = (props) => {
                     </div>
                     <div className={s.users__item__button}>
                         {u.followed
-                            ? <button onClick={() => {
-                                getUnFollowUsers(u.id).then(data => {
-                                    if (data.resultCode == 0) {
-                                        props.unfollow(u.id)
-                                    }
-                                })
+                            ? <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
+                                props.unfollowThunkCreator(u.id)
 
                             }}>unfollow</button>
-                            : <button onClick={() => {
-                                getFollowUsers(u.id).then(data => {
-                                    debugger
-                                    if (data.resultCode == 0) {
-                                        props.follow(u.id)
-                                    }
-                                })
+                            : <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
+                                props.followThunkCreator(u.id)
+                                
 
                             }}>follow</button>}
                     </div>

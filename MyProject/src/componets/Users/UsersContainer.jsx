@@ -2,36 +2,24 @@ import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-    follow,
+    followThunkCreator, getUsersThunkCreator, nextPageThunkCreator,
     setCurrentPage,
-    setUsers, toggleIsFatching,
-    unfollow
+    toggleFollowInProgress, toggleIsFatching,
+    unfollowThunkCreator
 } from "../../redux/reducerUser";
-import * as axios from "axios";
+
 import Preloader from "../common/Preloader/Preloader";
-import {getUsers} from "../../api/api";
 
 
 class UsersСontainer extends React.Component {
 
     componentDidMount = () => {
-        this.props.toggleIsFatching(true);
-        getUsers(this.props.currentPage,this.props.pageSize).then(data => {
-
-            this.props.toggleIsFatching(false);
-            this.props.setUsers(data.items)
-
-
-        })
+        this.props.getUsersThunkCreator(this.props.currentPage, this.props.pageSize)
 
     }
 
     nextPage = () => {
-        this.props.toggleIsFatching(true);
-        getUsers(this.props.currentPage+1,this.props.pageSize).then(data => {
-            this.props.toggleIsFatching(false);
-            this.props.setCurrentPage(data.items, this.props.currentPage + 1)
-        })
+        this.props.nextPageThunkCreator(this.props.currentPage, this.props.pageSize)
 
     }
 
@@ -41,9 +29,12 @@ class UsersСontainer extends React.Component {
             <>
                 {this.props.isFetching ? <Preloader/> : null}
                 <Users users={this.props.users}
-                       unfollow={this.props.unfollow}
-                       follow={this.props.follow}
+                       unfollowThunkCreator={this.props.unfollowThunkCreator}
+                       followThunkCreator={this.props.followThunkCreator}
                        nextPage={this.nextPage}
+                       isFetching={this.props.isFetching}
+                       followInProgerss={this.props.followInProgerss}
+
                 />
             </>
 
@@ -60,7 +51,8 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching: state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching,
+        followInProgerss: state.usersPage.followInProgerss
 
     }
 
@@ -93,4 +85,8 @@ let mapStateToProps = (state) => {
 //     }
 //
 // }
-export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, toggleIsFatching})(UsersСontainer)
+export default connect(mapStateToProps,
+    {
+        followThunkCreator, unfollowThunkCreator, setCurrentPage,
+        toggleIsFatching, toggleFollowInProgress, getUsersThunkCreator, nextPageThunkCreator
+    })(UsersСontainer)
