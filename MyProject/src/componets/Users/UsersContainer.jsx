@@ -9,15 +9,17 @@ import {
 } from "../../redux/reducerUser";
 import * as axios from "axios";
 import Preloader from "../common/Preloader/Preloader";
+import {getUsers} from "../../api/api";
 
 
 class UsersСontainer extends React.Component {
 
     componentDidMount = () => {
         this.props.toggleIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`, {withCredentials: true}).then(response => {
+        getUsers(this.props.currentPage,this.props.pageSize).then(data => {
+
             this.props.toggleIsFatching(false);
-            this.props.setUsers(response.data.items)
+            this.props.setUsers(data.items)
 
 
         })
@@ -26,9 +28,9 @@ class UsersСontainer extends React.Component {
 
     nextPage = () => {
         this.props.toggleIsFatching(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage + 1}&count=${this.props.pageSize}`, {withCredentials: true}).then(response => {
+        getUsers(this.props.currentPage+1,this.props.pageSize).then(data => {
             this.props.toggleIsFatching(false);
-            this.props.setCurrentPage(response.data.items, this.props.currentPage + 1)
+            this.props.setCurrentPage(data.items, this.props.currentPage + 1)
         })
 
     }
@@ -37,7 +39,7 @@ class UsersСontainer extends React.Component {
 
         return (
             <>
-                {this.props.isFetching?<Preloader />:null}
+                {this.props.isFetching ? <Preloader/> : null}
                 <Users users={this.props.users}
                        unfollow={this.props.unfollow}
                        follow={this.props.follow}
@@ -58,7 +60,7 @@ let mapStateToProps = (state) => {
         pageSize: state.usersPage.pageSize,
         totalUsersCount: state.usersPage.totalUsersCount,
         currentPage: state.usersPage.currentPage,
-        isFetching:state.usersPage.isFetching
+        isFetching: state.usersPage.isFetching
 
     }
 
@@ -91,4 +93,4 @@ let mapStateToProps = (state) => {
 //     }
 //
 // }
-export default connect(mapStateToProps, {follow, unfollow,setUsers, setCurrentPage,toggleIsFatching})(UsersСontainer)
+export default connect(mapStateToProps, {follow, unfollow, setUsers, setCurrentPage, toggleIsFatching})(UsersСontainer)
