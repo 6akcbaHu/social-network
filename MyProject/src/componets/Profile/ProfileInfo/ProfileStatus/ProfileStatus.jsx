@@ -9,15 +9,14 @@ import {updateUserStatusThunkCreator} from "../../../../redux/reducerProfile";
 class ProfileStatus extends React.Component {
 
 
-
     // let tempWrap=JSON.parse (JSON.stringify (this.props.status))
     state = {
         editMode: false,
-       status:this.props.status
+        status: this.props.status
     }
 
 
-    activateEditMode=()=> {
+    activateEditMode = () => {
 
         this.setState({
             editMode: true
@@ -25,19 +24,27 @@ class ProfileStatus extends React.Component {
 
     }
 
-    deactivateEditMode=()=> {
+    deactivateEditMode = () => {
         this.setState({
             editMode: false,
         });
-      this.props.updateStatus(this.state.status)
+        this.props.updateStatus(this.state.status)
 
     }
 
-    onStatusChange=(e)=> {
+    onStatusChange = (e) => {
         this.setState({
-            status:e.currentTarget.value
+            status: e.currentTarget.value
         })
 
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.status !== this.props.status) {
+            this.setState({
+                status: this.props.status
+            })
+        }
     }
 
     render() {
@@ -48,7 +55,7 @@ class ProfileStatus extends React.Component {
         //  }
         // this.props.status = document.querySelector('input').value;
         // console.log(document.getElementById("inputs"))
-console.log(this.props.status)
+        console.log(this.props.status)
         return (
 
             <div>
