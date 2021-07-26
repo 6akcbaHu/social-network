@@ -5,7 +5,7 @@
 }
 
 .profile__foto {
-flex: 1 1 30%;
+    flex: 1 1 30%;
     /*min-width: 220px;*/
     /*max-width: 220px;*/
     min-height: 200px;
@@ -14,6 +14,17 @@ flex: 1 1 30%;
 .profile__foto img {
     width: 100%;
     height: 100%;
+}
+
+.container {
+    flex: 1 1 70%;
+}
+.container p{
+    padding:0 15px 20px 15px;
+}
+
+.container__description {
+    display: flex;
 }
 
 .profile__description {

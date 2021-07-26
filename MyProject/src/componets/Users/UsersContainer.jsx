@@ -9,6 +9,8 @@ import {
 } from "../../redux/reducerUser";
 
 import Preloader from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
 
 class UsersСontainer extends React.Component {
@@ -59,34 +61,11 @@ let mapStateToProps = (state) => {
 }
 
 
-// let mapDispatchToProps = (dispatch) => {
-//
-//     return {
-//         follow: (userId) => {
-//             dispatch(followeAC(userId))
-//
-//         },
-//
-//         unfollow: (userId) => {
-//             dispatch(unfolloweAC(userId))
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users))
-//         },
-//         setCurrentPage: (users, currentPage) => {
-//             dispatch(setCurrentPageAC(users, currentPage))
-//
-//         },
-//         togglesIsFetching:(isFetching)=>{
-//             dispatch(toggleIsFatchingAC(isFetching))
-//         }
-//
-//
-//     }
-//
-// }
-export default connect(mapStateToProps,
-    {
-        followThunkCreator, unfollowThunkCreator, setCurrentPage,
-        toggleIsFatching, toggleFollowInProgress, getUsersThunkCreator, nextPageThunkCreator
-    })(UsersСontainer)
+export default compose(
+    withAuthRedirect,
+    connect(mapStateToProps,
+        {
+            followThunkCreator, unfollowThunkCreator, setCurrentPage,
+            toggleIsFatching, toggleFollowInProgress, getUsersThunkCreator, nextPageThunkCreator
+        })
+)(UsersСontainer)

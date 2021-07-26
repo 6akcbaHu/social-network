@@ -1,4 +1,11 @@
-import {getFollowUsers, getUnFollowUsers, getUsers} from "../api/api";
+import {
+    getFollowUsers,
+    getFollowUsersAPI,
+    getUnFollowUsers,
+    getUnFollowUsersAPI,
+    getUsers,
+    getUsersAPI, usersAPI
+} from "../api/api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -82,16 +89,16 @@ export const toggleFollowInProgress = (isFetching, userId) => ({type: TOGGLE_FOL
 export const getUsersThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFatching(true));
-        getUsers(currentPage, pageSize).then(data => {
+        usersAPI.getUsersAPI(currentPage, pageSize).then(data => {
             dispatch(toggleIsFatching(false));
             dispatch(setUsers(data.items));
         })
     }
 }
-export const nextPageThunkCreator = (currentPage,pageSize) => {
+export const nextPageThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFatching(true));
-        getUsers(currentPage + 1, pageSize).then(data => {
+        usersAPI.getUsersAPI(currentPage + 1, pageSize).then(data => {
             dispatch(toggleIsFatching(false));
             dispatch(setCurrentPage(data.items, currentPage + 1))
 
@@ -102,7 +109,7 @@ export const nextPageThunkCreator = (currentPage,pageSize) => {
 export const followThunkCreator = (userId) => {
     return (dispatch) => {
         dispatch(toggleFollowInProgress(true, userId))
-        getFollowUsers(userId).then(data => {
+        usersAPI.getFollowUsersAPI(userId).then(data => {
 
             if (data.resultCode == 0) {
                 dispatch(follow(userId))
@@ -115,7 +122,7 @@ export const unfollowThunkCreator = (userId) => {
     return (dispatch) => {
 
         dispatch(toggleFollowInProgress(true, userId))
-        getUnFollowUsers(userId).then(data => {
+        usersAPI.getUnFollowUsersAPI(userId).then(data => {
             if (data.resultCode == 0) {
                 dispatch(unfollow(userId))
             }

@@ -3,44 +3,16 @@ import {addMyMessageActionCreator, updateNewMyMessageActionCreator} from "../../
 import Dialog from "./Dialog";
 // import StoreContext from "../../StoreContext";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
+import {compose} from "redux";
 
-// const DialogContainer = (props) => {
-//
-//     return (
-//         <StoreContext.Consumer>
-//             {(store) => {
-//                 let state = store.getState()
-//
-//                 let addMessage = () => {
-//
-//
-//                     store.dispatch(addMyMessageActionCreator())
-//
-//                 }
-//                 let onMessageChange = (text) => {
-//
-//
-//                     let action = updateNewMyMessageActionCreator(text);
-//                     store.dispatch(action)
-//
-//                 }
-//
-//                 return <Dialog addMessage={addMessage}
-//                                onMessageChange={onMessageChange}
-//                                dialogsData={state.dialogsPage.dialogsData}
-//                                messages={state.dialogsPage.messages}
-//                                newMyMessage={state.dialogsPage.newMyMessage}/>
-//             }}
-//         </StoreContext.Consumer>
-//     )
-//
-//
-// }
 let mapStateToProps = (state) => {
     return {
         dialogsData: state.dialogsPage.dialogsData,
         messages: state.dialogsPage.messages,
-        newMyMessage: state.dialogsPage.newMyMessage
+        newMyMessage: state.dialogsPage.newMyMessage,
+
     }
 }
 let mapDispatchToProps=(dispatch)=>{
@@ -54,5 +26,5 @@ let mapDispatchToProps=(dispatch)=>{
     }
 
 }
-const DialogContainer = connect(mapStateToProps,mapDispatchToProps)(Dialog)
-export default DialogContainer;
+
+export default compose(connect(mapStateToProps,mapDispatchToProps),withAuthRedirect)(Dialog)

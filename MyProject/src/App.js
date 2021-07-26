@@ -11,6 +11,7 @@ import AllUsers from "./componets/Users/Users";
 import UsersContainer from "./componets/Users/UsersContainer";
 import ProfileContainer from "./componets/Profile/ProfileContainer";
 import HeaderContainer from "./componets/Header/HeaderContainer";
+import Login from "./componets/Login/Login";
 
 function App(props) {
 
@@ -26,6 +27,7 @@ function App(props) {
                         <Route path='/dialogs' render={() => <DialogContainer/>}/>
                         <Route path='/friends' render={() => <FriendsContainer/>}/>
                         <Route path='/allusers' render={() => <UsersContainer/>}/>
+                        <Route path='/login' render={() => <Login/>}/>
                     </div>
 
 
