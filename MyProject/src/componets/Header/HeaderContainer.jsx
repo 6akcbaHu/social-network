@@ -5,13 +5,13 @@ import Header from "./Header";
 import * as axios from "axios";
 import {connect} from "react-redux";
 import {setUserProfile} from "../../redux/reducerProfile";
-import {setAuthMeData} from "../../redux/reducerAuth";
+import {logout, setAuthMeData} from "../../redux/reducerAuth";
 import {getHeaderLogin} from "../../api/api";
-import {getHeaderLoginThunkCreator} from "../../redux/reducerHeader";
+import {getAuthMeData} from "../../redux/reducerAuth";
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-       this.props.getHeaderLoginThunkCreator()
+       this.props.getAuthMeData()
 
 
 
@@ -32,4 +32,4 @@ let mapStateToProps = (state) => {
         isAuth: state.auth.isAuth
     }
 }
-export default connect(mapStateToProps, {getHeaderLoginThunkCreator})(HeaderContainer);
+export default connect(mapStateToProps, {getAuthMeData,logout})(HeaderContainer);

@@ -1,6 +1,11 @@
 import React from "react";
 import s from "./Login.Module.css"
 import {Field, reduxForm} from "redux-form";
+import {Input} from "../common/FormsControls/FormsControls";
+import {maxLengthCreator, required} from "../common/Validators/validator";
+import {connect} from "react-redux";
+import {login} from "../../redux/reducerAuth";
+import {Redirect} from "react-router-dom";
 
 const LoginForm = (props) => {
 
@@ -8,13 +13,13 @@ const LoginForm = (props) => {
         <div className={s.login}>
             <form onSubmit={props.handleSubmit} className={s.login__form}>
                 <div className={s.login__item}>
-                    <Field placeholder={"login"} name={"login"} component={"input"}/>
+                    <Field placeholder={"login"} name={"email"} component={Input} validate={[required]}/>
                 </div>
                 <div className={s.login__item}>
-                    <Field placeholder={"Password"} name={"password"} component={"input"}/>
+                    <Field placeholder={"Password"} type={"password"} name={"password"} component={Input} validate={[required]}/>
                 </div>
                 <div className={s.checkbox}>
-                    <Field  component={"input"} name={"remember me"} type={"checkbox"}/><span>remember me</span>
+                    <Field component={Input} name={"remember me"} type={"checkbox"}/><span>remember me</span>
                 </div>
                 <div>
                     <button>Login</button>
@@ -24,10 +29,13 @@ const LoginForm = (props) => {
 
     )
 }
-const LoginRedaxForm=reduxForm({form:'login'})(LoginForm)
+const LoginRedaxForm = reduxForm({form: 'login'})(LoginForm)
 const Login = (props) => {
-    const onSubmit=(formData)=>{
-console.log(formData)
+    const onSubmit = (formData) => {
+        props.login(formData.email, formData.password, formData.rememberMe)
+    }
+    if(props.isAuth){
+        return <Redirect to={"/profile"}/>
     }
     return (
         <div className={s.login}>
@@ -36,7 +44,11 @@ console.log(formData)
 
     )
 }
-// const LoginReduxForm=reduxForm({
-// form:'login'
-// })(ContactForm)
-export default Login
+let mapStateToProps = (state) => {
+
+    return {
+
+        isAuth: state.auth.isAuth
+    }
+}
+export default connect(mapStateToProps, {login})(Login)

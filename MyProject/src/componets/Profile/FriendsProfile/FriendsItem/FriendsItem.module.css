@@ -1,12 +1,6 @@
 .friends {
     display: flex;
     flex-wrap: wrap;
-    /*padding:0 5px;*/
-    /*width: 75px;*/
-    /*  height: 75px;*/
-    /*display: flex;*/
-
-
     justify-content: space-between;
     align-items: center;
 }
@@ -23,11 +17,7 @@
     height: 70px;
     margin-bottom: 25px;
 }
-/*friends__item__img{*/
-/*    width: 30px;*/
-/*    height: 30px;*/
 
-/*}*/
 .friends__item img {
 
     width: 50px;

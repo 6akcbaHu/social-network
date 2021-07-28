@@ -2,6 +2,7 @@ import React from 'react';
 import s from "../Dialog/Dialog.module.css";
 import DialogfItem from "./DialogItem/DialogItem";
 import Message from "./Message/Message";
+import {Field, reduxForm} from "redux-form";
 
 
 const Dialog = (props) => {
@@ -10,18 +11,22 @@ const Dialog = (props) => {
     let dialogsElements = props.dialogsData.map(el => <DialogfItem name={el.name} key={el.id} id={el.id}/>)
     let messagesElements = props.messages.map(el => <Message message={el.message} key={el.id} img={el.img} name={el.name} position={el.position}/>)
 
-    let newMessagePost = React.createRef();
+    // let newMessagePost = React.createRef();
 
-    let addMessage = () => {
-
-        props.addMessage()
-
-    }
-    let onMessageChange = () => {
-
-        let text = newMessagePost.current.value
-        props.onMessageChange(text)
-
+    // let addMessage = () => {
+    //
+    //     props.addMessage()
+    //
+    // }
+    // let onMessageChange = (e) => {
+    //
+    //     let text = e.currentTarget.value
+    //     props.onMessageChange(text)
+    //
+    // }
+    let addNewMessage=(value)=>{
+        // debugger
+        props.addMessage(value.newMyMessage)
     }
 
         return (
@@ -32,18 +37,23 @@ const Dialog = (props) => {
                 <div className={s.dialog__message}>
                     {messagesElements}
                     {/*{myMessagesElements}*/}
-                    <div className={s.dialog__message__btn}>
-                        <textarea ref={newMessagePost} onChange={onMessageChange}
-                                  value={props.newMyMessage}></textarea>
-                        <p>
-                            <button onClick={addMessage}>send</button>
-                        </p>
-                    </div>
+                   <AddMessageRedaxForm onSubmit={addNewMessage}/>
                 </div>
             </div>
         )
 
 
 }
+const AddMessageForm=(props)=>{
 
+    return(
+        <form onSubmit={props.handleSubmit} className={s.dialog__btn}>
+                        <Field component={'textarea'} name={'newMyMessage'}/>
+            <p>
+                <button>send</button>
+            </p>
+        </form>
+    )
+}
+const AddMessageRedaxForm=reduxForm({form:'dialogAddMessageForm'})(AddMessageForm)
 export default Dialog;

@@ -21,67 +21,12 @@
     padding: 10px;
 }
 
-.dialog__name__name {
-    display: flex;
-    align-items: center;
-    border-bottom: darkolivegreen 1px solid;
-    padding: 5px;
-    margin-bottom: 10px;
-
-}
-
-.dialog__name__name img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-}
-
-.dialog__message_messages {
-    padding: 10px;
-}
-
-.dialog__message__block {
-    display: flex;
-    /*justify-content: space-between;*/
-    /*justify-content: center;*/
-    margin-bottom: 50px;
-    width: 80%;
-    /*flex: 1 1 20%;*/
-}
-
-/*.null {*/
-/*    flex: 1 1 15%;*/
+/*.dialog__message_messages {*/
+/*    padding: 10px;*/
 /*}*/
 
-.dialog__message__block__foto {
-    /*flex: 1 1 10%;*/
-    width: 135px;
-    height: 50px;
-    text-align: center;
-    align-self: center;
-    /*margin-right: 20px;*/
-    justify-content: flex-end;
-}
 
-.dialog__message__block__foto img {
-    width: 50px;;
-    height: 100%;
-    border-radius: 50%;
-}
-
-.dialog__message__block__message {
-    /*flex: 1 1 65%;*/
-    /*max-width: 60%;*/
-    max-width: 70%;
-    word-break: break-all;
-    margin-right: 20px;
-    background-color: bisque;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.dialog__message__btn {
+.dialog__btn {
     width: 80%;
     height: 120px;
     margin: 0 auto;
@@ -90,19 +35,19 @@
 
 }
 
-.dialog__message__btn textarea {
+.dialog__btn textarea {
     width: 100%;
     height: 80px;
     resize: none;
     padding: 10px;
     border-radius: 15px;
 }
-.dialog__message__btn p{
+.dialog__btn p{
        float: right;
     margin-top: 5px;
     width: 100px;
 }
-.dialog__message__btn button{
+.dialog__btn button{
     width: 100%;
     border: darkred solid 1px;
     border-radius: 5px;

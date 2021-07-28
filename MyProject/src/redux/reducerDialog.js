@@ -1,5 +1,5 @@
 const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
-const UPDATE_NEW_MY_MESSAGE = 'ADD-NEW-MMY-MESSAGE';
+// const UPDATE_NEW_MY_MESSAGE = 'ADD-NEW-MMY-MESSAGE';
 
 let initialState = {
     dialogsData: [
@@ -76,7 +76,7 @@ let initialState = {
 
 
     ],
-    newMyMessage: '',
+
 }
 
 const reducerDialog = (state = initialState, action) => {
@@ -85,27 +85,26 @@ const reducerDialog = (state = initialState, action) => {
         case ADD_MY_MESSAGE:
             return {
                 ...state,
-                newMyMessage: '',
                 messages: [...state.messages, {
                     id: state.messages.length + 1,
                     name: 'Me',
-                    message: state.newMyMessage,
+                    message: action.newMyMessage,
                     img: "https://www.audit-it.ru/upload/main/36b/1363522119_1583831715.jpg",
                     position: 'left'
                 }]
             };
 
-        case UPDATE_NEW_MY_MESSAGE:
-            return {
-                ...state,
-                newMyMessage: action.newText
-            };
+        // case UPDATE_NEW_MY_MESSAGE:
+        //     return {
+        //         ...state,
+        //         newMyMessage: action.newText
+        //     };
         default:
             return state;
     }
 
 }
-export const addMyMessageActionCreator = () => ({type: ADD_MY_MESSAGE})
-export const updateNewMyMessageActionCreator = (text) =>
-    ({type: UPDATE_NEW_MY_MESSAGE, newText: text})
+export const addMyMessageActionCreator = (newMyMessage) => ({type: ADD_MY_MESSAGE,newMyMessage})
+// export const updateNewMyMessageActionCreator = (text) =>
+//     ({type: UPDATE_NEW_MY_MESSAGE, newText: text})
 export default reducerDialog;

@@ -20,11 +20,11 @@ const ProfileInfo = (props) => {
                     <div className={s.profile__description}>{props.profile.aboutMe}
                     </div>
                     <div className={s.profile__education}>
-                        <div className="profile__education__name">{props.profile.fullName}</div>
-                        <div className="profile__education__birthday">15 november</div>
-                        <div className="profile__education__education">BGTU'14</div>
-                        <div className="profile__education__country">Russia</div>
-                        <div className="profile__education__city">Bryansk</div>
+                        <div className="education__name">{props.profile.fullName}</div>
+                        <div className="education__birthday">15 november</div>
+                        <div className="education__education">BGTU'14</div>
+                        <div className="education__country">Russia</div>
+                        <div className="education__city">Bryansk</div>
                     </div>
                 </div>
             </div>

@@ -17,16 +17,16 @@ const Users = (props) => {
             {props.users.map(u =>
 
                 <div key={u.id} className={s.users__item}>
-                    <div className={s.users__item__foto}>
+                    <div className={s.item__foto}>
 
                         <NavLink to={'/profile/' + u.id}><img src={u.photos.small != null ? u.photos.small : AvaUsers}/></NavLink>
                     </div>
-                    <div className={s.users__item__name}>
+                    <div className={s.item__name}>
                         <p>{u.name}</p>
                         <p>{'u.location.city'}</p>
                         <p>{'u.location.conutry'}</p>
                     </div>
-                    <div className={s.users__item__button}>
+                    <div className={s.item__button}>
                         {u.followed
                             ? <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
                                 props.unfollowThunkCreator(u.id)
@@ -34,7 +34,7 @@ const Users = (props) => {
                             }}>unfollow</button>
                             : <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
                                 props.followThunkCreator(u.id)
-                                
+
 
                             }}>follow</button>}
                     </div>

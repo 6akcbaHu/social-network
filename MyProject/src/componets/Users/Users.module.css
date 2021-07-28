@@ -29,33 +29,33 @@
 
 }
 
-.users__item__foto {
+.item__foto {
     flex: 1 1 15%;
     padding-bottom: 10px;
     height: 150px;
 }
 
-.users__item__foto img {
+.item__foto img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.users__item__name {
+.item__name {
     flex: 1 1 65%;
     padding: 10px;
 }
 
-.users__item__name p:first-child {
+.item__name p:first-child {
     padding-bottom: 15px;
 }
 
-.users__item__button {
+.item__button {
     text-align: center;
     flex: 1 1 20%;
 }
 
-.users__item__button button {
+.item__button button {
     width: 70%;
     height: 30px;
 }

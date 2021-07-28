@@ -1,5 +1,5 @@
 import React from 'react';
-import s from ".././Dialog.module.css";
+import s from "./Message.module.css";
 
 
 const Message = (props) => {
@@ -7,15 +7,15 @@ const Message = (props) => {
         float:props.position
     }
 
-    return (<div className={s.dialog__message__block} style={style}>
+    return (<div className={s.block} style={style}>
             {/*<div className={s.null}></div>*/}
-            <div className={s.dialog__message__block__foto}>
+            <div className={s.block__foto}>
                 <img
                     src={props.img}
                     alt=""/>
                 <p>{props.name}</p>
             </div>
-            <div className={s.dialog__message__block__message}>
+            <div className={s.block__message}>
                 <p>{props.message}</p>
             </div>
 

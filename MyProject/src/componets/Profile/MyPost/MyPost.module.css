@@ -7,11 +7,11 @@
 
 }
 
-.page__area__text{
+.item__text{
     width: 100%;
     margin-top: 10px;
 }
-.page__area__text textarea{
+.item__text textarea{
     /*width: 23vw;*/
     width: 100%;
     resize: none;
@@ -27,7 +27,7 @@ margin-top: 5px;
 
 
 }
-.page__area__button button{
+.item__button button{
     /*float: right;*/
     /*border: #ebebeb solid 1px;*/
     width: 100px;

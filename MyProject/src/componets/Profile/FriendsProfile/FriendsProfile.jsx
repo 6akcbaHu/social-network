@@ -11,7 +11,7 @@ const FriendsProfile = (props) => {
         <div className={s.content}>
 
         <div className={s.text}><a href="">Friends</a></div>
-            <div className={s.friendss}>
+            <div className={s.friends}>
                 {friends}
             </div>
 

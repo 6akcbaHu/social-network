@@ -1,19 +1,12 @@
 import React from 'react';
-import s from "../Profile/Profile.module.css";
-import ProfileInfo from "./ProfileInfo/ProfileInfo"
-import MyPostContainer from "./MyPost/MyPostContainer";
-import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";
 import Profile from "./Profile";
-import * as axios from "axios";
 import {connect} from "react-redux";
 import {
     getUserProfileThunkCreator,
     getUserStatusThunkCreator,
-    setUserProfile,
-    setUserProfileThunkCreator, updateUserStatusThunkCreator
+     updateUserStatusThunkCreator
 } from "../../redux/reducerProfile";
-import {Redirect, withRouter} from "react-router-dom";
-import {getProfileUsers} from "../../api/api";
+import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
 
