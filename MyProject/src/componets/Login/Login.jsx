@@ -6,6 +6,7 @@ import {maxLengthCreator, required} from "../common/Validators/validator";
 import {connect} from "react-redux";
 import {login} from "../../redux/reducerAuth";
 import {Redirect} from "react-router-dom";
+import f from "../common/FormsControls/FormsControls.module.css"
 
 const LoginForm = (props) => {
 
@@ -16,11 +17,14 @@ const LoginForm = (props) => {
                     <Field placeholder={"login"} name={"email"} component={Input} validate={[required]}/>
                 </div>
                 <div className={s.login__item}>
-                    <Field placeholder={"Password"} type={"password"} name={"password"} component={Input} validate={[required]}/>
+                    <Field placeholder={"Password"} type={"password"} name={"password"} component={Input}
+                           validate={[required]}/>
                 </div>
+                {props.error && <div className={f.formControl}>{props.error}</div>}
                 <div className={s.checkbox}>
                     <Field component={Input} name={"remember me"} type={"checkbox"}/><span>remember me</span>
                 </div>
+
                 <div>
                     <button>Login</button>
                 </div>
@@ -34,7 +38,7 @@ const Login = (props) => {
     const onSubmit = (formData) => {
         props.login(formData.email, formData.password, formData.rememberMe)
     }
-    if(props.isAuth){
+    if (props.isAuth) {
         return <Redirect to={"/profile"}/>
     }
     return (

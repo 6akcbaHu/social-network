@@ -10,12 +10,7 @@ import {getHeaderLogin} from "../../api/api";
 import {getAuthMeData} from "../../redux/reducerAuth";
 
 class HeaderContainer extends React.Component {
-    componentDidMount() {
-       this.props.getAuthMeData()
 
-
-
-    }
 
     render() {
         return (
