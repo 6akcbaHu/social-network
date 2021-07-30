@@ -53,29 +53,28 @@ export const addPostActionCreator = (newMyPost) => ({type: ADD_POST, newMyPost})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
 
 export const getUserProfileThunkCreator = (userId) => {
-    return (dispatch) => {
-
-        usersAPI.getProfileUsersAPI(userId).then(response => {
-            dispatch(setUserProfile(response.data))
-        })
-
+    return async (dispatch) => {
+        let response = await usersAPI.getProfileUsersAPI(userId)
+        dispatch(setUserProfile(response.data))
     }
+
 }
+
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
 export const getUserStatusThunkCreator = (status) => {
-    return (dispatch) => {
-        profileAPI.getStatus(status).then(response => {
-            dispatch(setUserStatus(response.data))
-        })
+    return async (dispatch) => {
+        let response = await profileAPI.getStatus(status)
+        dispatch(setUserStatus(response.data))
     }
 }
+
 export const updateUserStatusThunkCreator = (status) => {
-    return (dispatch) => {
-        profileAPI.updateStatus(status).then(response => {
-            if (response.data.resultCode === 0) {
-                dispatch(setUserStatus(status))
-            }
-        })
+    return async (dispatch) => {
+        let response = await profileAPI.updateStatus(status)
+        if (response.data.resultCode === 0) {
+            dispatch(setUserStatus(status))
+        }
     }
 }
+
 export default reducerProfile;

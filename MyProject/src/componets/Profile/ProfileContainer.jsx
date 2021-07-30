@@ -4,13 +4,19 @@ import {connect} from "react-redux";
 import {
     getUserProfileThunkCreator,
     getUserStatusThunkCreator,
-     updateUserStatusThunkCreator
+    updateUserStatusThunkCreator
 } from "../../redux/reducerProfile";
 import {withRouter} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {isAuthIfSelector, isAuthSelector} from "../selectors/authSelectors";
+import {profileSelector, statusSelector} from "../selectors/profileSelectors";
 
 class ProfileContainer extends React.Component {
+    // shouldComponentUpdate(nextProps, nextState, nextContext) {
+    //     return nextProps != this.props || nextState != this.state
+    // }
+
     componentDidMount = () => {
         let userId = this.props.match.params.userId;
         if (!userId) {
@@ -18,13 +24,13 @@ class ProfileContainer extends React.Component {
             userId = this.props.userId
             // if(!userId) this.props.history.push('/login')
         }
-debugger
+
         this.props.getUserProfileThunkCreator(userId)
         this.props.getUserStatusThunkCreator(userId)
     }
 
     render() {
-
+        console.log("ssss")
         return <Profile {...this.props}
                         profile={this.props.profile}
                         status={this.props.status}
@@ -35,11 +41,12 @@ debugger
 
 
 let mapStateToProps = (state) => {
+
     return {
-        profile: state.profilesPage.profile,
-        status: state.profilesPage.status,
-        userId:state.auth.id,
-        isAuth:state.auth.isAuth
+        profile: profileSelector(state),
+        status: statusSelector(state),
+        userId: isAuthIfSelector(state),
+        isAuth: isAuthSelector(state)
     }
 
 }

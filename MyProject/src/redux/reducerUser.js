@@ -96,38 +96,34 @@ export const getUsersThunkCreator = (currentPage, pageSize) => {
     }
 }
 export const nextPageThunkCreator = (currentPage, pageSize) => {
-    return (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleIsFatching(true));
-        usersAPI.getUsersAPI(currentPage + 1, pageSize).then(data => {
-            dispatch(toggleIsFatching(false));
-            dispatch(setCurrentPage(data.items, currentPage + 1))
-
-        })
-
+        let response = await usersAPI.getUsersAPI(currentPage + 1, pageSize);
+        dispatch(toggleIsFatching(false));
+        dispatch(setCurrentPage(response.items, currentPage + 1));
     }
 }
+
 export const followThunkCreator = (userId) => {
-    return (dispatch) => {
-        dispatch(toggleFollowInProgress(true, userId))
-        usersAPI.getFollowUsersAPI(userId).then(data => {
-
-            if (data.resultCode == 0) {
-                dispatch(follow(userId))
-            }
-            dispatch(toggleFollowInProgress(false, userId))
-        })
+    return async (dispatch) => {
+        dispatch(toggleFollowInProgress(true, userId));
+        let response = await usersAPI.getFollowUsersAPI(userId);
+        if (response.resultCode == 0) {
+            dispatch(follow(userId));
+        }
+        dispatch(toggleFollowInProgress(false, userId));
     }
 }
+
 export const unfollowThunkCreator = (userId) => {
-    return (dispatch) => {
-
-        dispatch(toggleFollowInProgress(true, userId))
-        usersAPI.getUnFollowUsersAPI(userId).then(data => {
-            if (data.resultCode == 0) {
-                dispatch(unfollow(userId))
-            }
-            dispatch(toggleFollowInProgress(false, userId))
-        })
+    return async (dispatch) => {
+        dispatch(toggleFollowInProgress(true, userId));
+        let response = await usersAPI.getUnFollowUsersAPI(userId);
+        if (response.resultCode == 0) {
+            dispatch(unfollow(userId))
+        }
+        dispatch(toggleFollowInProgress(false, userId));
     }
 }
+
 export default reducerUser;

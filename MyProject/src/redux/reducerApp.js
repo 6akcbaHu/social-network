@@ -33,16 +33,16 @@ export const initializeApp = () => {
     }
 }
 export const login = (email, password, rememberMe) => {
-    return (dispatch) => {
-        authMe.loginMe(email, password, rememberMe).then(data => {
-            if (data.resultCode === 0) {
+    return async (dispatch) => {
+        let response = await authMe.loginMe(email, password, rememberMe)
+            if (response.resultCode === 0) {
                 dispatch(getAuthMeData())
             } else {
-                dispatch(stopSubmit('login', {_error: data.messages[0]}))
+                dispatch(stopSubmit('login', {_error: response.messages[0]}))
             }
-        })
+        }
     }
-}
+
 // export const logout = () => {
 //     return (dispatch) => {
 //         authMe.logoutMe().then(data => {

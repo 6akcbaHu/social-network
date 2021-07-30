@@ -5,9 +5,8 @@ import {Field, reduxForm} from "redux-form";
 import {maxLengthCreator, required} from "../../common/Validators/validator";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
-// let maxLength10=maxLengthCreator(10);
 const MyPost = (props) => {
-    let postsData = props.posts.map(el => <Post message={el.message} key={el.id} like={el.likeCount}/>)
+    let postsData = [...props.posts].reverse().map(el => <Post message={el.message} key={el.id} like={el.likeCount}/>)
     let addMyPost=(value)=>{
         props.addPost(value.newMyPost)
     }

@@ -25,38 +25,40 @@ const reducerAuth = (state = initialState, action) => {
 
 export const setAuthMeData = (id, login, email, isAuth) => ({type: SET_AUTH_DATA, data: {id, login, email, isAuth}})
 export const getAuthMeData = (userId) => {
-    return (dispatch) => {
-      return   authMe.Me().then(data => {
-            if (data.resultCode === 0) {
-                let {id, login, email} = data.data
-                dispatch(setAuthMeData(id, login, email, true))
-            }
-        })
-
+    return async (dispatch) => {
+        let response = await authMe.Me();
+        if (response.resultCode === 0) {
+            let {id, login, email} = response.data;
+            dispatch(setAuthMeData(id, login, email, true));
+        }
     }
 
-}
-export const login = (email, password, rememberMe) => {
-    return (dispatch) => {
-        authMe.loginMe(email, password, rememberMe).then(data => {
-            if (data.resultCode === 0) {
-                dispatch(getAuthMeData())
-            } else {
 
-                // let message = data.messages.length > 0 ? data.messages[0] : 'some error'
-                dispatch(stopSubmit('login', {_error: data.messages[0]}))
-            }
-        })
+}
+
+
+export const login = (email, password, rememberMe) => {
+    return async (dispatch) => {
+        let response = await authMe.loginMe(email, password, rememberMe);
+
+        if (response.resultCode === 0) {
+            dispatch(getAuthMeData());
+        } else {
+
+            // let message = data.messages.length > 0 ? data.messages[0] : 'some error'
+            dispatch(stopSubmit('login', {_error: response.messages[0]}));
+        }
     }
 }
 export const logout = () => {
-    return (dispatch) => {
-        authMe.logoutMe().then(data => {
-            if (data.resultCode === 0) {
-                dispatch(setAuthMeData(null, null, null, false))
+    return async (dispatch) => {
+        let response = await authMe.logoutMe();
+
+            if (response.resultCode === 0) {
+                dispatch(setAuthMeData(null, null, null, false));
             }
-        })
+        }
 
     }
-}
+
 export default reducerAuth;

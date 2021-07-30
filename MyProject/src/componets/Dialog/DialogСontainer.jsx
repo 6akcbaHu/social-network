@@ -6,12 +6,13 @@ import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import {compose} from "redux";
+import {dialogsDataSelector, messagesSelector, newMyMessageSelector} from "../selectors/dialogSelectors";
 
 let mapStateToProps = (state) => {
     return {
-        dialogsData: state.dialogsPage.dialogsData,
-        messages: state.dialogsPage.messages,
-        newMyMessage: state.dialogsPage.newMyMessage,
+        dialogsData: dialogsDataSelector(state),
+        messages: messagesSelector(state),
+        newMyMessage: newMyMessageSelector(state),
 
     }
 }
