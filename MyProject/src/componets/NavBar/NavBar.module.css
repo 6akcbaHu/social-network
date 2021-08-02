@@ -1,7 +1,7 @@
 
 .nav {
 flex: 1 0 20%;
-    background-color: #f3ca20;
+    background-color:#f3ca20;
     /*width: 200px;*/
     /*height: 400px;*/
     border-radius: 10px;
@@ -39,8 +39,8 @@ li:last-child{
 }
 
 a.active {
-    font-size: 15px;
-    color: #2937ac;
+    font-size: 25px;
+    color: red;
 }
 /*.ni__img {*/
 

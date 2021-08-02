@@ -1,13 +1,14 @@
 .footer{
-    width: 70vw;
+    width: 100vw;
     height: 80px;
     text-align: center;
-    margin: 15px auto;
-    background-image: url("../../images/header/clouds-header.jpg");
+    margin: 0 auto;
+    /*background-image: url("../../images/header/clouds-header.jpg");*/
     background-repeat: no-repeat;
+    background-color:  #201E1B;
     background-size: cover;
     padding: 15px;
-    border: darkgray solid 1px;
+    /*border: darkgray solid 1px;*/
     border-radius: 10px;
     margin-top: auto;
 
