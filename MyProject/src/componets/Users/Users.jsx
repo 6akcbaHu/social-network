@@ -1,8 +1,9 @@
-import React from "react";
+import React, {useState} from "react";
 import s from "./Users.module.css"
 import AvaUsers from "../../images/users.jpg";
 import {NavLink} from "react-router-dom";
 import {getFollowUsers, getUnFollowUsers} from "../../api/api";
+import {getUserProfileThunkCreator} from "../../redux/reducerProfile";
 
 const Users = (props) => {
 
@@ -30,13 +31,14 @@ const Users = (props) => {
                         {u.followed
                             ? <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
                                 props.unfollowThunkCreator(u.id)
-
-                            }}>unfollow</button>
+                                props.removefriends(u.id)
+                            }}>remove friends</button>
                             : <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
                                 props.followThunkCreator(u.id)
+                                props.getUserProfileThunkCreator2(u.id);
 
+                            }}>add friends</button>}
 
-                            }}>follow</button>}
                     </div>
                 </div>
             )}

@@ -1,9 +1,9 @@
 
 .nav {
 flex: 1 0 20%;
-    background-color: darkgray;
+    background-color: #f3ca20;
     /*width: 200px;*/
-    height: 400px;
+    /*height: 400px;*/
     border-radius: 10px;
     padding: 20px;
 }

@@ -11,7 +11,12 @@ const Profile = (props) => {
     return (
 
         <div className={s.page}>
-            <ProfileInfo profile={props.profile} status={props.status} updateStatus={props.updateStatus}/>
+            <ProfileInfo isOwner={props.isOwner}
+                         profile={props.profile}
+                         status={props.status}
+                         updateStatus={props.updateStatus}
+                         saveProfilePhotoThunkCreator={props.saveProfilePhotoThunkCreator}
+            />
             <div className={s.profile__friendsPost}>
                 <FriendsProfileContainer/>
                 <MyPostContainer/>

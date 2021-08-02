@@ -3,7 +3,7 @@ import Profile from "./Profile";
 import {connect} from "react-redux";
 import {
     getUserProfileThunkCreator,
-    getUserStatusThunkCreator,
+    getUserStatusThunkCreator, saveProfilePhotoThunkCreator,
     updateUserStatusThunkCreator
 } from "../../redux/reducerProfile";
 import {withRouter} from "react-router-dom";
@@ -17,24 +17,45 @@ class ProfileContainer extends React.Component {
     //     return nextProps != this.props || nextState != this.state
     // }
 
-    componentDidMount = () => {
+    componentDidMount() {
+
         let userId = this.props.match.params.userId;
         if (!userId) {
             // debugger
             userId = this.props.userId
-            // if(!userId) this.props.history.push('/login')
+            if (!userId) this.props.history.push('/login')
         }
 
         this.props.getUserProfileThunkCreator(userId)
         this.props.getUserStatusThunkCreator(userId)
     }
 
+    componentDidUpdate(prevProps, prevState, snapshot) {
+
+        if (this.props.match.params.userId != prevProps.match.params.userId) {
+            // debugger
+            let userId = this.props.match.params.userId;
+            if (!userId) {
+                // debugger
+                userId = this.props.userId
+                if (!userId) this.props.history.push('/login')
+            }
+
+            this.props.getUserProfileThunkCreator(userId)
+            this.props.getUserStatusThunkCreator(userId)
+        }
+
+    }
+
     render() {
-        console.log("ssss")
+
         return <Profile {...this.props}
+                        isOwner={!this.props.match.params.userId}
                         profile={this.props.profile}
                         status={this.props.status}
-                        updateStatus={this.props.updateUserStatusThunkCreator}/>
+                        updateStatus={this.props.updateUserStatusThunkCreator}
+                        saveProfilePhotoThunkCreator={this.props.saveProfilePhotoThunkCreator}
+        />
 
     }
 }
@@ -55,5 +76,6 @@ export default compose(connect(mapStateToProps,
     {
         getUserProfileThunkCreator,
         getUserStatusThunkCreator,
-        updateUserStatusThunkCreator
+        updateUserStatusThunkCreator,
+        saveProfilePhotoThunkCreator
     }), withRouter, withAuthRedirect)(ProfileContainer)

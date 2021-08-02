@@ -16,3 +16,7 @@ export const isFetchingSelectors = (state) => {
 export const followInProgerssSelectors = (state) => {
     return state.usersPage.followInProgerss
 }
+export const stateSelector = (state) => {
+    return state.usersPage.friendsList
+
+}

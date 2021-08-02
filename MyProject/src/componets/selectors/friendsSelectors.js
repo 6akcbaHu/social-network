@@ -1,5 +1,4 @@
-export const stateSelector=(state)=>{
-    debugger
-    return state.friendsPage
+export const stateSelector = (state) => {
+    return state.usersPage
 
 }

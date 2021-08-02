@@ -1,10 +1,11 @@
 import React from 'react';
 import FriendsProfile from "./FriendsProfile";
 import {connect} from "react-redux";
+import {stateSelector} from "../../selectors/usersSelectors";
 
 let mapStateToProps=(state)=>{
   return {
-      friendsList:state.friendsPage.friendsList
+      friendsList:stateSelector(state)
   }
 }
 

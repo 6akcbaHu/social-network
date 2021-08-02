@@ -1,18 +1,25 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import s from './ProfileInfo.module.css';
 import Preloader from "../../common/Preloader/Preloader";
 import ProfileStatus from "./ProfileStatus/ProfileStatus";
 import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
+import AvaUsers from "../../../images/users.jpg";
 
 const ProfileInfo = (props) => {
+
+
     if (!props.profile) {
         return <Preloader/>
+    }
+    let addPhoto=(e)=>{
+        props.saveProfilePhotoThunkCreator(e.target.files[0])
     }
     return (
 
         <div className={s.profile__page}>
             <div className={s.profile__foto}>
-                <img src={props.profile.photos.large} alt=""/>
+                <img src={props.profile.photos.large || AvaUsers} alt=""/>
+                {props.isOwner && <input onChange={addPhoto} type="file"/>}
             </div>
             <div className={s.container}>
                 {/*<p>SATATUS</p>*/}

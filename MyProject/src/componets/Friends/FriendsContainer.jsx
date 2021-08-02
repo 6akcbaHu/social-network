@@ -1,7 +1,7 @@
 import s from './Friends.module.css';
 import Friends from "./Friends";
 import {connect} from "react-redux";
-import {stateSelector} from "../selectors/friendsSelectors";
+import {stateSelector} from "../selectors/usersSelectors";
 // import StoreContext from "../../StoreContext";
 //
 // const FriendsContainer = (props) => {
@@ -16,9 +16,11 @@ import {stateSelector} from "../selectors/friendsSelectors";
 //         </StoreContext.Consumer>
 //     )
 // }
+
 let mapStateToProps = (state) => {
+
     return {
-        state:stateSelector(state)
+        friendsList:stateSelector(state)
     }
 }
 

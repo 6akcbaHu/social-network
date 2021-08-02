@@ -6,6 +6,9 @@ import {
     getUsers,
     getUsersAPI, usersAPI
 } from "../api/api";
+import {setUserProfile} from "./reducerProfile";
+import {addFriend} from "./reducerFriends";
+import {useState} from "react";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -13,15 +16,18 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOGGLE_IS_FATCHING = 'TOGGLE_IS_FATCHING';
 const TOGGLE_FOLLOW_IN_PROGRESS = 'TOGGLE_FOLLOW_IN_PROGRESS';
-
+const ADD_FRIENDS = 'ADD_FRIENDS'
+const REMOVE_FRIENDS='REMOVE_FRIENDS'
 let initialState = {
     users: [],
     pageSize: 10,
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followInProgerss: []
-
+    followInProgerss: [],
+    friendsList: [
+        {id: 1, name: 'Dima.k', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+    ]
 
 }
 
@@ -74,18 +80,32 @@ const reducerUser = (state = initialState, action) => {
 
             }
         }
+        case ADD_FRIENDS:
+            return {
+                ...state,
+                friendsList: [...state.friendsList, {id: action.users.userId, name: action.users.fullName}],
+            }
+
+        case REMOVE_FRIENDS:
+            return {
+                ...state,
+                friendsList: [...state.friendsList.filter(v=>v.id!==action.userId)]
+            }
+
         default:
             return state;
     }
 
 }
+
 export const follow = (userId) => ({type: FOLLOW, userId})
 export const unfollow = (userId) => ({type: UNFOLLOW, userId})
 export const setUsers = (users) => ({type: SET_USERS, users})
 export const setCurrentPage = (users, page) => ({type: SET_CURRENT_PAGE, users, page})
 export const toggleIsFatching = (isFetching) => ({type: TOGGLE_IS_FATCHING, isFetching})
 export const toggleFollowInProgress = (isFetching, userId) => ({type: TOGGLE_FOLLOW_IN_PROGRESS, isFetching, userId})
-
+export const addsFriends = (users) => ({type: ADD_FRIENDS, users})
+export const removeFriends = (userId) => ({type: REMOVE_FRIENDS, userId})
 export const getUsersThunkCreator = (currentPage, pageSize) => {
     return (dispatch) => {
         dispatch(toggleIsFatching(true));
@@ -111,6 +131,7 @@ export const followThunkCreator = (userId) => {
         if (response.resultCode == 0) {
             dispatch(follow(userId));
         }
+
         dispatch(toggleFollowInProgress(false, userId));
     }
 }
@@ -124,6 +145,17 @@ export const unfollowThunkCreator = (userId) => {
         }
         dispatch(toggleFollowInProgress(false, userId));
     }
+}
+export const getUserProfileThunkCreator2 = (userId) => {
+    return async (dispatch) => {
+        let response = await usersAPI.getProfileUsersAPI(userId)
+        // if (response.resultCode == 0) {
+        //     dispatch(addsFriends(response.data))
+        // }
+        dispatch(addsFriends(response.data))
+
+    }
+
 }
 
 export default reducerUser;

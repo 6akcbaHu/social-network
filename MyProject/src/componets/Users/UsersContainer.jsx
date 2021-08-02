@@ -2,7 +2,7 @@ import React from "react";
 import Users from "./Users";
 import {connect} from "react-redux";
 import {
-    followThunkCreator, getUsersThunkCreator, nextPageThunkCreator,
+    followThunkCreator, getUserProfileThunkCreator2, getUsersThunkCreator, nextPageThunkCreator, removeFriends,
     setCurrentPage,
     toggleFollowInProgress, toggleIsFatching,
     unfollowThunkCreator
@@ -14,9 +14,11 @@ import {compose} from "redux";
 import {
     currentPageSelectors, followInProgerssSelectors,
     isFetchingSelectors,
-     pageSizeSelectors,
+    pageSizeSelectors, stateSelector,
     totalUsersCountSelectors, usersSelectors
 } from "../selectors/usersSelectors";
+
+// import {getUserProfileThunkCreator, getUserProfileThunkCreator2} from "../../redux/reducerProfile";
 
 
 class UsersСontainer extends React.Component {
@@ -42,7 +44,9 @@ class UsersСontainer extends React.Component {
                        nextPage={this.nextPage}
                        isFetching={this.props.isFetching}
                        followInProgerss={this.props.followInProgerss}
-
+                       getUserProfileThunkCreator2={this.props.getUserProfileThunkCreator2}
+                       friendsList={this.props.friendsList}
+                       removefriends={this.props.removeFriends}
                 />
             </>
 
@@ -60,7 +64,8 @@ let mapStateToProps = (state) => {
         totalUsersCount: totalUsersCountSelectors(state),
         currentPage: currentPageSelectors(state),
         isFetching: isFetchingSelectors(state),
-        followInProgerss: followInProgerssSelectors(state)
+        followInProgerss: followInProgerssSelectors(state),
+        friendsList: stateSelector(state)
 
     }
 
@@ -71,6 +76,8 @@ export default compose(
     withAuthRedirect,
     connect(mapStateToProps,
         {
+            removeFriends,
+            getUserProfileThunkCreator2,
             followThunkCreator, unfollowThunkCreator, setCurrentPage,
             toggleIsFatching, toggleFollowInProgress, getUsersThunkCreator, nextPageThunkCreator
         })

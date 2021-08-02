@@ -1,6 +1,8 @@
 import React from 'react';
 import s from './FriendsProfile.module.css';
 import FriendsItem from "./FriendsItem/FriendsItem";
+import FriendsContainer from "../../Friends/FriendsContainer";
+import {NavLink} from "react-router-dom";
 
 
 const FriendsProfile = (props) => {
@@ -10,7 +12,7 @@ const FriendsProfile = (props) => {
     return (
         <div className={s.content}>
 
-        <div className={s.text}><a href="">Friends</a></div>
+        <div className={s.text}><NavLink to='/friends'>Friends </NavLink></div>
             <div className={s.friends}>
                 {friends}
             </div>

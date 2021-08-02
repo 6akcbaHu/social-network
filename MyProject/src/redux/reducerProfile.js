@@ -1,10 +1,12 @@
-import {getProfileUsers, getProfileUsersAPI, getUsers, profileAPI, usersAPI} from "../api/api";
-import {setUsers, toggleIsFatching} from "./reducerUser";
+import {profileAPI, usersAPI} from "../api/api";
+// import {addFriend} from "./reducerFriends";
+// import {setUsers, toggleIsFatching} from "./reducerUser";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'ADD-NEW-POST-TEXT';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
+const SAVE_PROFILE_PHOTO = 'SAVE_PROFILE_PHOTO';
 let initialState = {
     posts: [
         {id: 1, message: 'Hi', likeCount: 73},
@@ -23,8 +25,9 @@ const reducerProfile = (state = initialState, action) => {
         case ADD_POST:
             return {
                 ...state,
-                newPostText: action.newMyPost,
-                posts: [...state.posts, {id: state.posts.length + 1, message: action.newMyPost, likeCount: 0}]
+                // newPostText: action.newMyPost,
+                posts: [...state.posts, {id: state.posts.length + 1, message: action.newMyPost, likeCount: 0}],
+
             }
         // case UPDATE_NEW_POST_TEXT:
         //     return {
@@ -35,11 +38,16 @@ const reducerProfile = (state = initialState, action) => {
             return {
                 ...state,
                 profile: action.profile
+
             }
         case SET_USER_STATUS:
             return {
                 ...state,
                 status: action.status
+            }
+        case SAVE_PROFILE_PHOTO:
+            return {
+                ...state, profile: {...state.profile, photos: action.foto}
             }
         default:
             return state;
@@ -56,6 +64,8 @@ export const getUserProfileThunkCreator = (userId) => {
     return async (dispatch) => {
         let response = await usersAPI.getProfileUsersAPI(userId)
         dispatch(setUserProfile(response.data))
+
+
     }
 
 }
@@ -73,6 +83,15 @@ export const updateUserStatusThunkCreator = (status) => {
         let response = await profileAPI.updateStatus(status)
         if (response.data.resultCode === 0) {
             dispatch(setUserStatus(status))
+        }
+    }
+}
+export const saveProfilePhoto = (foto) => ({type: SAVE_PROFILE_PHOTO, foto})
+export const saveProfilePhotoThunkCreator = (file) => {
+    return async (dispatch) => {
+        let response = await profileAPI.savePhotos(file)
+        if (response.data.resultCode === 0) {
+            dispatch(saveProfilePhoto(response.data.data.photos))
         }
     }
 }
