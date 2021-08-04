@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 
 function Links(props) {
     return (
-        <li>
+        <li className={s.links}>
             <NavLink to={props.url} activeClassName={s.active}>
                 <div className={s.nav__item}>
                     <p>{props.icon}</p>

@@ -9,7 +9,7 @@
     flex: 1 1 30%;
     /*min-width: 220px;*/
     /*max-width: 220px;*/
-    min-height: 200px;
+    height: 30%;
 }
 
 .profile__foto img {
@@ -20,13 +20,17 @@
 .container {
     flex: 1 1 70%;
 }
-.container p{
-    padding:0 15px 20px 15px;
+
+.container p {
+    padding: 0 15px 20px 15px;
 }
-.container__status{
+
+.container__status {
     width: 70%;
     text-align: center;
+    height: 70px;
 }
+
 .container__description {
     display: flex;
 }
@@ -43,3 +47,59 @@
     flex: 1 1 20%;
     /*width: 200px;*/
 }
+
+.contacts {
+    padding: 10px 0 0 20px;
+}
+
+.profile__foto label {
+
+    cursor: pointer;
+    padding: 10px ;
+    background-color: lightslategray;
+   border: solid 1px black;
+display: block;
+    text-align: center;
+    height: 40px;
+    margin: 2px 0;
+}
+label:hover {
+    background-color: #f3ca90;
+    color: red;
+}
+.profile__foto input {
+    display: none;
+}
+
+/*.addPhoto {*/
+/*    color: transparent;*/
+/*    width: 100%;*/
+/*!*}*!*/
+/*.addPhoto::-webkit-file-upload-button {*/
+/*    visibility: hidden;*/
+/*}*/
+/*.addPhoto::before {*/
+/*    content: 'Файл не выбран';*/
+/*    color: black;*/
+/*    display: inline-block;*/
+/*    background: -webkit-linear-gradient(top, #f9f9f9, #e3e3e3);*/
+/*    border: 1px solid #999;*/
+/*    border-radius: 3px;*/
+/*    padding: 5px 8px;*/
+/*    outline: none;*/
+/*    white-space: nowrap;*/
+/*    -webkit-user-select: none;*/
+/*    cursor: pointer;*/
+/*    text-shadow: 1px 1px #fff;*/
+/*    font-weight: 700;*/
+/*    font-size: 10pt;*/
+/*}*/
+/*.addPhoto:hover::before {*/
+/*    border-color: black;*/
+/*}*/
+/*.addPhoto:active {*/
+/*    outline: 0;*/
+/*}*/
+/*.addPhoto:active::before {*/
+/*    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);*/
+/*}*/

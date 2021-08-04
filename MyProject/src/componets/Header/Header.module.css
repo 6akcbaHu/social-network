@@ -2,68 +2,54 @@
     width: 100vw;
     height: 80px;
     text-align: center;
-
-    /*margin: 15px auto;*/
     margin-bottom: 15px;
-    /*display: flex;*/
-    /*background-image: url("../../images/header/clouds-header.jpg");*/
     background-repeat: no-repeat;
-    background-color:  #201E1B;
-    /*opacity: 5;*/
+    background-color: #201E1B;
     background-size: cover;
     padding: 15px;
-    /*border: darkgray solid 1px;*/
-    /*border-radius: 10px;*/
-    /*justify-content: flex-end;*/
     position: relative;
 }
-.header__logo{
 
-    /*flex: 1 1 60%;*/
-    /*margin-left: auto;*/
+.header a {
+    color: #f3ca20;
 }
+
 .header__logo img {
-    /*margin-left: auto;*/
-    width: 230px;
-    height: 50px;
-    /*margin: 15px auto;*/
-    /*justify-content: center;*/
+    width: 200px;
+    height: 60px;
 }
 
 .header__login {
-    /*flex: 1 1 40%;*/
     position: absolute;
     right: 5px;
     bottom: 30px;
     width: 200px;
     margin-left: auto;
     font-size: x-large;
-    /*padding-bottom: 10px;*/
-    /*margin-bottom: 50px;*/
 }
+
 .header__login:hover .exit {
     display: block;
 }
+
 .exit {
     display: none;
     position: absolute;
-    top: 20px;
+    top: 10px;
     text-align: center;
-    font-size: 25px;
-    width:250px;
-    color: black;
+    width: 150px;
     padding: 20px;
 }
 
-.exit button{
-    width: 150px;
-    height: 50px;
-    background-color: #5e7ebf;
-    color: white;
-    font-size: 20px;
+.exit button {
+    width: 100px;
+    height: 40px;
+    background-color: #f3ca20;
+    /*color: white;*/
+    font-size: 15px;
     border-radius: 5px;
 }
 
-.exit button:active{
+.exit button:active {
     background-color: #0b3389;
 }

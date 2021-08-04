@@ -1,24 +1,21 @@
 @import './nullStyle.css';
 
-body{
+body {
     font-family: 'Staatliches', cursive;
     font-size: 20px;
 }
+
 .wrapper {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow: hidden;
-    /*background-image: url("https://images.wallpaperscraft.ru/image/poverhnost_fon_odnotonnyy_temnyy_50697_1920x1080.jpg");*/
     background-color: #201E1B;
-    /*background-size: cover;*/
-    /*font-family: 'Libre Franklin', sans-serif;*/
 }
 
 .content__item {
     display: flex;
-  max-width: 80vw;
+    max-width: 80vw;
     margin: 0 auto;
     margin-bottom: 15px;
-
 }

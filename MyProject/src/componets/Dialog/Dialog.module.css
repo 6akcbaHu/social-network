@@ -1,9 +1,8 @@
 .dialog {
     display: flex;
     justify-content: space-between;
-    background-color: darkgray;
+    background-color: #f3ca20;
     flex: 1 0 80%;
-    /*width: 40vw;*/
     margin: 0 15px;
     border-radius: 10px;
 
@@ -16,23 +15,14 @@
 }
 
 .dialog__message {
-    /*flex: 3 0 30vw;*/
     width: 100%;
     padding: 10px;
 }
-
-/*.dialog__message_messages {*/
-/*    padding: 10px;*/
-/*}*/
-
 
 .dialog__btn {
     width: 80%;
     height: 120px;
     margin: 0 auto;
-
-
-
 }
 
 .dialog__btn textarea {
@@ -41,19 +31,24 @@
     resize: none;
     padding: 10px;
     border-radius: 15px;
+    background-color: #f3ca90;
+    border: black solid 1px;
 }
-.dialog__btn p{
-       float: right;
+
+.dialog__btn p {
+    float: right;
     margin-top: 5px;
     width: 100px;
 }
-.dialog__btn button{
+
+.dialog__btn button {
     width: 100%;
-    border: darkred solid 1px;
     border-radius: 5px;
+    height: 40px;
     background-color: lightslategray;
-    color: bisque;
-
-
-    /*align-self: center;*/
+    font-size: larger;
+    border: black solid 1px;
+}
+.dialog__btn button:hover{
+    background-color: #f3ca90;
 }

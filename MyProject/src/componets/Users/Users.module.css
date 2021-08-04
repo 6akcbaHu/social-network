@@ -1,6 +1,6 @@
 .users {
     flex: 1 1 80%;
-    background-color: darkgrey;
+    background-color: #f3ca20;
     margin-left: 15px;
     border-radius: 10px;
 
@@ -53,15 +53,27 @@
 .item__button {
     text-align: center;
     flex: 1 1 20%;
+
 }
 
 .item__button button {
     width: 70%;
-    height: 30px;
+    height: 40px;
+    background-color: lightslategray;
+    font-size: larger;
+    border: black solid 1px;
 }
-.user__button{
+
+.item__button button:hover {
+    background-color: #f3ca90;
+}
+
+.user__button {
     display: block;
     margin: 20px auto;
     width: 200px;
     height: 50px;
+    font-size: larger;
+    background-color: lightslategrey;
+    border: black solid 1px;
 }

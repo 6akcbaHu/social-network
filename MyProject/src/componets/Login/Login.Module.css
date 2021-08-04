@@ -1,6 +1,6 @@
 .login {
     flex: 1 1 80%;
-    background-color: darkgrey;
+    background-color: #f3ca20;
     border-radius: 10px;
     margin-left: 15px;
     display: flex;
@@ -16,20 +16,29 @@
    margin-bottom: 10px;
 }
 .login__item input{
-    width: 250px;
+    width: 350px;
     height: 30px;
+    font-size: 15px;
+    background-color: #f3ca90;
+    border: black solid 1px;
+    padding: 5px;
 }
 .checkbox input{
     width: 15px;
     height: 15px;
+    background-color: #f3ca90;
+    border: black solid 1px;
 }
 .checkbox span{
     display: block;
-    margin-top: -27px;
+    margin-top: -32px;
     margin-left: 20px;
 }
 button{
     width: 100px;
-    height: 20px;
+    height: 40px;
+    background-color: lightslategrey;
+    border: black solid 1px;
+    font-size: larger;
 }
 

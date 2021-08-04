@@ -1,0 +1,16 @@
+
+.input{
+    background-color: #f3ca90;
+    border: black solid 1px;
+    font-size: larger;
+
+}
+.btn{
+    background-color: lightslategray;
+    font-size: larger;
+    border: black solid 1px;
+    margin-left: 3px;
+    width: 100px;
+    /*height: 50px;*/
+    /*height: 30px;*/
+}

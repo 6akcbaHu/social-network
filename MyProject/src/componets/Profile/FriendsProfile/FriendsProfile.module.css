@@ -5,7 +5,7 @@
     /*min-width: 220px;*/
     /*max-width: 220px;*/
     height: 320px;
-    background-color: #c9c9c9;
+    background-color: #f3ca90;
     padding: 10px;
     overflow: hidden;
     border: black solid 1px;
@@ -19,7 +19,18 @@
     padding: 5px;
     border: black solid 1px;
     text-align: center;
+    background-color: lightslategray;
     /*overflow: hidden;*/
+}
+.text a{
+
+    color: black;
+}
+.text a:hover{
+    color: red;
+}
+.text:hover{
+    background-color: #f3ca90;
 }
 .friends{
     display: flex;

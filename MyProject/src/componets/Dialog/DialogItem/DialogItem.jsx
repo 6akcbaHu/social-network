@@ -9,7 +9,7 @@ const DialogfItem = (props) => {
                     src="https://habrastorage.org/getpro/habr/post_images/3db/ac4/5df/3dbac45df51c33b0bd63621081afbe29.jpg"
                     alt=""/>
             </div>
-            <NavLink to={'/dialog/' + props.id}>{props.name}</NavLink>
+            <NavLink to={`/dialogs/id=${props.id}`}>{props.name}</NavLink>
         </div>
     )
 

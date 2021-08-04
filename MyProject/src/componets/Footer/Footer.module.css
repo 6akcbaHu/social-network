@@ -1,19 +1,14 @@
-.footer{
+.footer {
     width: 100vw;
     height: 80px;
     text-align: center;
-    margin: 0 auto;
-    /*background-image: url("../../images/header/clouds-header.jpg");*/
-    background-repeat: no-repeat;
-    background-color:  #201E1B;
-    background-size: cover;
+    font-size: larger;
+    color: #f3ca20;
+    background-color: #201E1B;
     padding: 15px;
-    /*border: darkgray solid 1px;*/
     border-radius: 10px;
     margin-top: auto;
+    /*justify-content: center;*/
+    /*align-items: center;*/
 
-}
-.footer img{
-    width: 130px;
-    height: 50px;
 }

@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './Post.module.css';
-import LogoLike from '../../../../images/Post/like.png';
+// import LogoLike from '../../../../images/Post/like.png';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {
+    faHeart
+} from "@fortawesome/free-solid-svg-icons";
 
 const Post = (props) => {
-
+    const [count, setCount] = useState(props.like);
     return (
         <div className={s.page}>
             <div className={s.page__ava}>
@@ -12,7 +16,9 @@ const Post = (props) => {
             <div className={s.page__area}>
                 <div className={s.page__area__text}>{props.message}
                 </div>
-                <div className={s.page__area__like}><img src={LogoLike} alt=""/>{props.like}</div>
+                <div className={s.page__area__like}><p onClick={() => setCount(count + 1)}>
+                    {<FontAwesomeIcon icon={faHeart}/>}</p><span>{count}</span>
+                </div>
 
             </div>
 

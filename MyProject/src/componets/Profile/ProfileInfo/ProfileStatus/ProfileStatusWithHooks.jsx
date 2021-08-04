@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import s from '../ProfileInfo.module.css';
+// import s from '../ProfileInfo.module.css';
 import {updateUserStatusThunkCreator} from "../../../../redux/reducerProfile";
 // import Preloader from "../../common/Preloader/Preloader";
-
+import s from './ProfileIStatus.module.css'
 
 // export default ProfileInfo;
 
@@ -36,8 +36,8 @@ const ProfileStatusWithHooks = (props) => {
             }
             {editMode &&
             <div>
-                <input onChange={onStatusChange} value={status}/>
-                <button onClick={deactivateEditMode}>Сохранить</button>
+                <input className={s.input} onChange={onStatusChange} maxlength='50' value={status}/>
+                <button className={s.btn} onClick={deactivateEditMode}>save</button>
             </div>
             }
         </div>
