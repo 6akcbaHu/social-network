@@ -1,0 +1,9 @@
+.error{
+    flex: 0 0 80%;
+    height:79vh;
+}
+.error img{
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

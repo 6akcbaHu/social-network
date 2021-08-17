@@ -43,16 +43,23 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
-    }
+    },
+    saveProfile(profile) {
+        return instance.put(`profile`,profile);
+    },
 }
         export const authMe = {
             Me() {
                 return instance.get(`auth/me`).then(responce => responce.data);
             },
-            loginMe(email, password, rememberMe = false) {
-                return instance.post(`auth/login`, {email, password, rememberMe}).then(responce => responce.data);
+            loginMe(email, password, rememberMe = false,captcha=null) {
+                return instance.post(`auth/login`, {email, password, rememberMe,captcha}).then(responce => responce.data);
             },
             logoutMe() {
                 return instance.delete(`auth/login`).then(responce => responce.data);
+            },
+            Captcha(){
+                return instance.get(`security/get-captcha-url`).then(responce => responce.data);
             }
+
         }

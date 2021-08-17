@@ -1,5 +1,4 @@
 const ADD_MY_MESSAGE = 'ADD-MY-MESSAGE';
-// const UPDATE_NEW_MY_MESSAGE = 'ADD-NEW-MMY-MESSAGE';
 
 let initialState = {
     dialogsData: [
@@ -28,49 +27,49 @@ let initialState = {
             id: 3,
             name: 'dima',
             message: 'hi',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 4,
             name: 'sveta',
             message: 'hello',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 5,
             name: 'kolya',
             message: 'hi',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 6,
             name: 'valera',
             message: 'ggggsqqssqs',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 7,
             name: 'igor',
             message: 'ggggsqqssqs',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 8,
             name: 'Liver',
             message: 'privet',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
         {
             id: 9,
             name: 'Дмитрий Комаров Игоревичк',
             message: 'sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg",
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg",
             position: 'right'
         },
 
@@ -94,17 +93,10 @@ const reducerDialog = (state = initialState, action) => {
                 }]
             };
 
-        // case UPDATE_NEW_MY_MESSAGE:
-        //     return {
-        //         ...state,
-        //         newMyMessage: action.newText
-        //     };
         default:
             return state;
     }
 
 }
 export const addMyMessageActionCreator = (newMyMessage) => ({type: ADD_MY_MESSAGE,newMyMessage})
-// export const updateNewMyMessageActionCreator = (text) =>
-//     ({type: UPDATE_NEW_MY_MESSAGE, newText: text})
 export default reducerDialog;

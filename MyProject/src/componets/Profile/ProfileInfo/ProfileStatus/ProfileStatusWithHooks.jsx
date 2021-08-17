@@ -1,10 +1,5 @@
 import React, {useEffect, useState} from 'react';
-// import s from '../ProfileInfo.module.css';
-import {updateUserStatusThunkCreator} from "../../../../redux/reducerProfile";
-// import Preloader from "../../common/Preloader/Preloader";
 import s from './ProfileIStatus.module.css'
-
-// export default ProfileInfo;
 
 const ProfileStatusWithHooks = (props) => {
     const [editMode, setEditMode] = useState(false);
@@ -45,6 +40,4 @@ const ProfileStatusWithHooks = (props) => {
 
 }
 
-
-// console.log(document.querySelector('#inputs').value)
 export default ProfileStatusWithHooks

@@ -8,7 +8,7 @@ const Message = (props) => {
     }
 
     return (<div className={s.block} style={style}>
-            {/*<div className={s.null}></div>*/}
+
             <div className={s.block__foto}>
                 <img
                     src={props.img}
@@ -21,7 +21,7 @@ const Message = (props) => {
 
         </div>
     )
-    // return <div className={s.dialog__message_messages}>{props.message}</div>
+
 }
 
 

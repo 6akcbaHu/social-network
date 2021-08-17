@@ -1,25 +1,16 @@
-import React, {useState} from "react";
+import React from "react";
 import s from "./Users.module.css"
 import AvaUsers from "../../images/users.jpg";
 import {NavLink} from "react-router-dom";
-import {getFollowUsers, getUnFollowUsers} from "../../api/api";
-import {getUserProfileThunkCreator} from "../../redux/reducerProfile";
-
 const Users = (props) => {
-
     return (
-
-
         <div className={s.users}>
             <div className={s.users__input}>
                 <input type="text"/>
             </div>
-
             {props.users.map(u =>
-
                 <div key={u.id} className={s.users__item}>
                     <div className={s.item__foto}>
-
                         <NavLink to={'/profile/' + u.id}><img src={u.photos.small != null ? u.photos.small : AvaUsers}/></NavLink>
                     </div>
                     <div className={s.item__name}>
@@ -36,9 +27,7 @@ const Users = (props) => {
                             : <button disabled={props.followInProgerss.some(id => id === u.id)} onClick={() => {
                                 props.followThunkCreator(u.id)
                                 props.getUserProfileThunkCreator2(u.id);
-
                             }}>add friends</button>}
-
                     </div>
                 </div>
             )}

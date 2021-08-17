@@ -5,46 +5,32 @@ import Message from "./Message/Message";
 import {Field, reduxForm, reset} from "redux-form";
 
 
-const Dialog = (props) => {
+const Dialog =(props)=>  {
 
+        let dialogsElements = props.dialogsData.map(el => <DialogfItem name={el.name} key={el.id} id={el.id}/>)
+        let messagesElements = props.messages.map(el => <Message message={el.message} key={el.id} img={el.img}
+                                                                      name={el.name} position={el.position}/>)
 
-    let dialogsElements = props.dialogsData.map(el => <DialogfItem name={el.name} key={el.id} id={el.id}/>)
-    let messagesElements = props.messages.map(el => <Message message={el.message} key={el.id} img={el.img}
-                                                             name={el.name} position={el.position}/>)
+        let addNewMessage = (value) => {
+            props.addMessage(value.newMyMessage)
 
-    // let newMessagePost = React.createRef();
-
-    // let addMessage = () => {
-    //
-    //     props.addMessage()
-    //
-    // }
-    // let onMessageChange = (e) => {
-    //
-    //     let text = e.currentTarget.value
-    //     props.onMessageChange(text)
-    //
-    // }
-    let addNewMessage = (value) => {
-        // debugger
-        props.addMessage(value.newMyMessage)
-    }
-
-    return (
-        <div className={s.dialog}>
-            <div className={s.dialog__name}>
-                {dialogsElements}
+        }
+        return (
+            <div className={s.dialog}>
+                <div className={s.dialog__name}>
+                    {dialogsElements}
+                </div>
+                <div className={s.dialog__message}>
+                    {messagesElements}
+                    <AddMessageRedaxForm onSubmit={addNewMessage}/>
+                </div>
             </div>
-            <div className={s.dialog__message}>
-                {messagesElements}
-                {/*{myMessagesElements}*/}
-                <AddMessageRedaxForm onSubmit={addNewMessage}/>
-            </div>
-        </div>
-    )
+        )
+
 
 
 }
+
 const afterSubmit = (result, dispatch) =>
     dispatch(reset('dialogAddMessageForm'));
 const AddMessageForm = (props) => {
@@ -58,5 +44,6 @@ const AddMessageForm = (props) => {
         </form>
     )
 }
+
 const AddMessageRedaxForm = reduxForm({form: 'dialogAddMessageForm', onSubmitSuccess: afterSubmit})(AddMessageForm)
 export default Dialog;

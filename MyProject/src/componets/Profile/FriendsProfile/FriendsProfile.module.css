@@ -1,40 +1,36 @@
 .content {
     margin-top: 10px;
     flex: 1 1 30%;
-
-    /*min-width: 220px;*/
-    /*max-width: 220px;*/
     height: 320px;
     background-color: #f3ca90;
     padding: 10px;
     overflow: hidden;
     border: black solid 1px;
-
 }
 
 .text {
-    /*max-width: 100%;*/
-    /*text-align: center;*/
     margin-bottom: 10px;
     padding: 5px;
     border: black solid 1px;
     text-align: center;
     background-color: lightslategray;
-    /*overflow: hidden;*/
 }
-.text a{
 
+.text a {
     color: black;
 }
-.text a:hover{
+
+.text a:hover {
     color: red;
 }
-.text:hover{
+
+.text:hover {
     background-color: #f3ca90;
 }
-.friends{
+
+.friends {
     display: flex;
     flex-wrap: wrap;
-    padding:0 3px;
+    padding: 0 3px;
     justify-content: space-around;
 }

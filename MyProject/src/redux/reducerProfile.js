@@ -1,6 +1,5 @@
 import {profileAPI, usersAPI} from "../api/api";
-// import {addFriend} from "./reducerFriends";
-// import {setUsers, toggleIsFatching} from "./reducerUser";
+import {stopSubmit} from "redux-form";
 
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'ADD-NEW-POST-TEXT';
@@ -25,15 +24,10 @@ const reducerProfile = (state = initialState, action) => {
         case ADD_POST:
             return {
                 ...state,
-                // newPostText: action.newMyPost,
                 posts: [...state.posts, {id: state.posts.length + 1, message: action.newMyPost, likeCount: 0}],
 
             }
-        // case UPDATE_NEW_POST_TEXT:
-        //     return {
-        //         ...state,
-        //         newPostText: action.newText
-        //     }
+
         case SET_USER_PROFILE:
             return {
                 ...state,
@@ -56,18 +50,12 @@ const reducerProfile = (state = initialState, action) => {
 }
 
 export const addPostActionCreator = (newMyPost) => ({type: ADD_POST, newMyPost})
-// export const updateNewPostTextActionCreator = (text) =>
-//     ({type: UPDATE_NEW_POST_TEXT, newText: text})
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile})
-
 export const getUserProfileThunkCreator = (userId) => {
     return async (dispatch) => {
         let response = await usersAPI.getProfileUsersAPI(userId)
         dispatch(setUserProfile(response.data))
-
-
     }
-
 }
 
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status})
@@ -95,5 +83,16 @@ export const saveProfilePhotoThunkCreator = (file) => {
         }
     }
 }
-
+export const saveProfile = (profile) => {
+    return async (dispatch, getState) => {
+        const userId = getState().auth.id
+        let response = await profileAPI.saveProfile(profile)
+        if (response.data.resultCode === 0) {
+            dispatch(getUserProfileThunkCreator(userId))
+        } else {
+            dispatch(stopSubmit("edit-profile", {_error: response.data.messages[0]}))
+            return Promise.reject(response.data.messages[0])
+        }
+    }
+}
 export default reducerProfile;

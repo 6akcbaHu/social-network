@@ -1,14 +1,4 @@
-import {
-    getFollowUsers,
-    getFollowUsersAPI,
-    getUnFollowUsers,
-    getUnFollowUsersAPI,
-    getUsers,
-    getUsersAPI, usersAPI
-} from "../api/api";
-import {setUserProfile} from "./reducerProfile";
-import {addFriend} from "./reducerFriends";
-import {useState} from "react";
+import {usersAPI} from "../api/api";
 
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
@@ -17,7 +7,7 @@ const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const TOGGLE_IS_FATCHING = 'TOGGLE_IS_FATCHING';
 const TOGGLE_FOLLOW_IN_PROGRESS = 'TOGGLE_FOLLOW_IN_PROGRESS';
 const ADD_FRIENDS = 'ADD_FRIENDS'
-const REMOVE_FRIENDS='REMOVE_FRIENDS'
+const REMOVE_FRIENDS = 'REMOVE_FRIENDS'
 let initialState = {
     users: [],
     pageSize: 10,
@@ -26,46 +16,46 @@ let initialState = {
     isFetching: false,
     followInProgerss: [],
     friendsList: [
-        {id: 1, name: 'Dima.k', img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"},
+        {id: 1, name: 'Dima.k', img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"},
         {
             id: 2,
             name: 'Lena ',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 3,
             name: 'Masha ',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 4,
             name: 'Kolya',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 5,
             name: 'Den S',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 6,
             name: 'Vlad N',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 7,
             name: 'Oleg K',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 8,
             name: 'Igor P',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         },
         {
             id: 9,
             name: 'Slavik k',
-            img: "https://www.meme-arsenal.com/memes/4522023f3e25467b5328d24596676806.jpg"
+            img: "https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
         }
     ]
 
@@ -123,13 +113,17 @@ const reducerUser = (state = initialState, action) => {
         case ADD_FRIENDS:
             return {
                 ...state,
-                friendsList: [...state.friendsList, {id: action.users.userId, name: action.users.fullName,img: action.users.photos.large}],
+                friendsList: [...state.friendsList, {
+                    id: action.users.userId,
+                    name: action.users.fullName,
+                    img: action.users.photos.large
+                }],
             }
 
         case REMOVE_FRIENDS:
             return {
                 ...state,
-                friendsList: [...state.friendsList.filter(v=>v.id!==action.userId)]
+                friendsList: [...state.friendsList.filter(v => v.id !== action.userId)]
             }
 
         default:
@@ -189,11 +183,8 @@ export const unfollowThunkCreator = (userId) => {
 export const getUserProfileThunkCreator2 = (userId) => {
     return async (dispatch) => {
         let response = await usersAPI.getProfileUsersAPI(userId)
-        // if (response.resultCode == 0) {
-        //     dispatch(addsFriends(response.data))
-        // }
         dispatch(addsFriends(response.data))
-  debugger
+        debugger
     }
 
 }

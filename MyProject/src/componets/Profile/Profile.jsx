@@ -4,6 +4,7 @@ import ProfileInfo from "./ProfileInfo/ProfileInfo"
 import MyPostContainer from "./MyPost/MyPostContainer";
 import FriendsProfileContainer from "./FriendsProfile/FriendsProfileoContainer";
 import {Redirect} from "react-router-dom";
+import {saveProfile} from "../../redux/reducerProfile";
 
 const Profile = (props) => {
 
@@ -16,6 +17,7 @@ const Profile = (props) => {
                          status={props.status}
                          updateStatus={props.updateStatus}
                          saveProfilePhotoThunkCreator={props.saveProfilePhotoThunkCreator}
+                         saveProfile={props.saveProfile}
             />
             <div className={s.profile__friendsPost}>
                 <FriendsProfileContainer/>

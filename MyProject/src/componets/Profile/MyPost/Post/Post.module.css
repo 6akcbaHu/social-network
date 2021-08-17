@@ -22,20 +22,21 @@
     height: 30px;
     display: flex;
     padding: 2px;
-    /*text-align: right;*/
-
 }
 
 .page__area__like p {
     color: red;
     font-size: 25px;
 }
+
 .page__area__like p:hover {
     cursor: pointer;
 }
+
 .page__area__like p:active {
     color: #FF9090;
 }
+
 .page__area__like span {
     font-size: 20px;
     align-self: center;

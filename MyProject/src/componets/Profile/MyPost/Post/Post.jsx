@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import s from './Post.module.css';
-// import LogoLike from '../../../../images/Post/like.png';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {
     faHeart

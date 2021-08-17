@@ -6,7 +6,7 @@ const DialogfItem = (props) => {
     return (<div className={s.dialogItem}>
             <div className=".dialogItem__img">
                 <img
-                    src="https://habrastorage.org/getpro/habr/post_images/3db/ac4/5df/3dbac45df51c33b0bd63621081afbe29.jpg"
+                    src="https://avatarko.ru/img/kartinka/1/avatarko_anonim.jpg"
                     alt=""/>
             </div>
             <NavLink to={`/dialogs/id=${props.id}`}>{props.name}</NavLink>

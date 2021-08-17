@@ -1,11 +1,10 @@
 import React from "react";
 import {Redirect} from "react-router-dom";
-import Dialog from "../componets/Dialog/Dialog";
 import {connect} from "react-redux";
 
-let mapStateToPropsForRedirect=(state)=>{
+let mapStateToPropsForRedirect = (state) => {
     return {
-        isAuth:state.auth.isAuth
+        isAuth: state.auth.isAuth
     }
 };
 
@@ -20,6 +19,6 @@ export const withAuthRedirect = (Component) => {
     }
 
 
-   let ConnectedAuthRedicertComponent=connect(mapStateToPropsForRedirect)(RedirectComponent)
+    let ConnectedAuthRedicertComponent = connect(mapStateToPropsForRedirect)(RedirectComponent)
     return ConnectedAuthRedicertComponent
 }

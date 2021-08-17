@@ -1,8 +1,8 @@
 import React from 'react';
 import s from './MyPost.module.css';
 import Post from './Post/Post'
-import {Field, reduxForm,reset} from "redux-form";
-import {maxLengthCreator, required} from "../../common/Validators/validator";
+import {Field, reduxForm, reset} from "redux-form";
+import {required} from "../../common/Validators/validator";
 import {Textarea} from "../../common/FormsControls/FormsControls";
 
 const MyPost = (props) => {
@@ -33,5 +33,5 @@ const AddMyPostForm = (props) => {
         </form>
     )
 }
-const AddPostRedaxForm=reduxForm({form:'AddMyPostForm',onSubmitSuccess: afterSubmit})(AddMyPostForm)
+const AddPostRedaxForm = reduxForm({form: 'AddMyPostForm', onSubmitSuccess: afterSubmit})(AddMyPostForm)
 export default MyPost;

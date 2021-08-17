@@ -18,9 +18,6 @@ import {
     totalUsersCountSelectors, usersSelectors
 } from "../selectors/usersSelectors";
 
-// import {getUserProfileThunkCreator, getUserProfileThunkCreator2} from "../../redux/reducerProfile";
-
-
 class UsersСontainer extends React.Component {
 
     componentDidMount = () => {
