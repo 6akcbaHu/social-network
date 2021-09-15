@@ -112,7 +112,7 @@ label:hover {
     display: none;
 }
 
-p span {
+.profile__description p span {
     color: red;
     font-size:x-large;
 }
