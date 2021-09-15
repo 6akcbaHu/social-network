@@ -35,6 +35,7 @@ const ProfileInfo = (props) => {
                 <button onClick={() => setEditMode(true)} className={s.item__edit}>Edit page</button>}
             </div>
             <div className={s.container}>
+                <div className={s.container__name}>{props.profile.fullName}</div>
                 <div className={s.container__status}><ProfileStatusWithHooks status={props.status}
                                                                              updateStatus={props.updateStatus}/></div>
                 <div className={s.container__description}>
@@ -54,12 +55,12 @@ const ProfileInfo = (props) => {
 
 }
 const ProfileData = (props) => {
-    return (<div className={s.profile__description}>
-            <p>{props.profile.fullName}</p>
-            <p>looking for a job :{props.profile.lookingForAJob ? 'yes' : 'no'}</p>
-            <p>My professional skills:{props.profile.lookingForAJobDescription || '----'}</p>
-            <p>About me: {props.profile.aboutMe || '----'}</p>
-            <div>Contacts:
+    return (
+        <div className={s.profile__description}>
+            <p><span>looking for a job</span> : {props.profile.lookingForAJob ? 'yes' : 'no'}</p>
+            <p><span>My professional skills</span> : {props.profile.lookingForAJobDescription || '----'}</p>
+            <p><span>About me</span> : {props.profile.aboutMe || '----'}</p>
+            <div><p><span>Contacts</span> : </p>
                 {Object.keys(props.profile.contacts).map(key => <UpdateProfile contact={key}
                                                                                key={key}
                                                                                contactValue={props.profile.contacts[key]}

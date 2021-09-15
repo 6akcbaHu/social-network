@@ -3,6 +3,7 @@
 }
 .list span{
     color: red;
+    font-size: 18px;
 }
 .item__description{
     display: flex;

@@ -11,8 +11,8 @@ const ProfileDataForm = (props) => {
             {props.error && <div className={f.formControl}>{props.error}</div>}
             <div className={s.item__description}><p>{props.profile.fullName} :</p>
                 <Field className={s.item__input} placeholder={"Full name"} name={"fullName"} component={Input}/></div>
-        <div className={s.item__description}><p>looking for a job :</p>
-            <Field name={"lookingForAJob"} type={"checkbox"} component={Input}/></div>
+            <div className={s.item__description}><p>looking for a job :</p>
+                <Field name={"lookingForAJob"} type={"checkbox"} component={Input}/></div>
             <div className={s.item__description}><p>My professional skills :</p>
                 <Field className={s.item__textarea} placeholder={"Profile skills"} name={"lookingForAJobDescription"}
                        component={Textarea}/></div>

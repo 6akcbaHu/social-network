@@ -21,10 +21,14 @@
 .container p {
     padding: 5px 0;
 }
-
+.container__name{
+    padding-left: 25px;
+    font-size: xx-large;
+    margin-bottom: 20px;
+}
 .container__status {
     width: 70%;
-    text-align: center;
+    padding-left: 25px;;
     height: 70px;
 }
 
@@ -36,7 +40,8 @@
     padding: 0 25px;
     flex: 3 0 70%;
 }
-.profile__description button{
+
+.profile__description button {
     width: 100px;
     font-size: 20px;
     padding: 5px;
@@ -49,6 +54,7 @@
     margin: 2px auto;
 
 }
+
 .item__edit {
     width: 100%;
     font-size: 20px;
@@ -105,3 +111,12 @@ label:hover {
 .profile__foto input {
     display: none;
 }
+
+p span {
+    color: red;
+    font-size:x-large;
+}
+/*span {*/
+/*    color: red;*/
+/*    font-size: x-large;*/
+/*}*/
