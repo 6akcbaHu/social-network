@@ -31,7 +31,7 @@ const ProfileStatusWithHooks = (props) => {
             }
             {editMode &&
             <div>
-                <input className={s.input} onChange={onStatusChange} maxlength='50' value={status}/>
+                <input className={s.input} onChange={onStatusChange} maxlength='90' value={status}/>
                 <button className={s.btn} onClick={deactivateEditMode}>save</button>
             </div>
             }
